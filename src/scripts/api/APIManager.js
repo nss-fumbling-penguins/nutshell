@@ -2,6 +2,7 @@
     App to handle interactions with the api for nutshell
     Authors: Riley Mathews
 */
+const $ = require("jquery")
 
 const APIManager = Object.create(null, {
     //method to get everything from the api
