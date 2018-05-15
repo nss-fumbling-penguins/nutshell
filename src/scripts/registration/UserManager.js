@@ -10,17 +10,12 @@ const APIManager = require("./APIManager")
 const userManager = Object.create({}, {
     createNewUser: {
         value: (first, last, username, pass, email) => {
-            $.ajax({
-                url: "http://localhost:8088/Users",
-                method: "POST",
-                data: {
-                    "firstName": `${first}`,
-                    "lastName": `${last}`,
-                    "username": `${username}`,
-                    "password": `${pass}`, 
-                    "email": `${email}`
-                }
-            }).then(newUser => {
+            APIManager.createItem("Users", {
+                "firstName": `${first}`,
+                "lastName": `${last}`,
+                "username": `${username}`,
+                "password": `${pass}`, 
+                "email": `${email}`}).then(newUser => {
                 const id = newUser.id
                 userManager.logInUser(id)
             })
@@ -28,7 +23,7 @@ const userManager = Object.create({}, {
     },
     authenticated: {
         value: (username, pass) => {
-            APIManager.getAllOfCollection("users").then(users => {  const user = users.find(user => user.username === username)
+            APIManager.getAllOfCollection("Users").then(users => {  const user = users.find(user => user.username === username)
                 if (!user) {
                     return false
                 } else if (user.password === pass) {
