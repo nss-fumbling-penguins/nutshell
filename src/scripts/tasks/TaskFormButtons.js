@@ -9,15 +9,37 @@ const buildTaskCard = require("./buildTaskCard")
 const UserManager = require("../registration/UserManager")
 const APIManager = require("../api/APIManager")
 
+//functions to hold common functionality across buttons
+//show the task modal
+const showModal = () => {
+    $("#Task__modal").addClass("show-modal")
+}
+
+//hide the task modal
+const hideModal = () => {
+    console.log("modal hidden")
+    $("#Task__modal").removeClass("show-modal")
+}
+
+//clear the form fields of the task modal
+const clearFormFields = () => {
+    $("#Task__input__title").val("")
+    $("#Task__input__date").val("")
+}
+
+//main function of module, activate event handlers for buttons
 const activateTaskFormButtons = () => {
     //handles click on the create new task button
     $("#Tasks__button__createTask").click(() => {
-        $("#Task__modal").addClass("show-modal")
+        showModal()
     })
+
+    //handles click on the modal x button
+    $("#Task__modal__close").click(hideModal)
 
     //handles click on task submit button
     $("#Tasks__button__submit").click(() => {
-        $("#Task__modal").removeClass("show-modal")
+        hideModal()
         //get current user
         userID = UserManager.currentUser()
         //create task object
@@ -30,22 +52,22 @@ const activateTaskFormButtons = () => {
                 id = response.id
                 dueDate = response.dueDate
                 //take the response and append a new card to the dom based on the new task item
-                $("#Tasks__output").append(buildTaskCard(title, id, dueDate))
+                buildTaskCard(title, id, dueDate)
             })
         
-        $("#Tasks__input__title").val("")
+        clearFormFields()
     })
 
     //handles click on the cancel task creation button
     $("#Tasks__button__cancel").click(() => {
-        $("#Task__modal").removeClass("show-modal")
-        $("#Tasks__input__title").val("")
+        hideModal()
+        clearFormFields()
     })
 
     //handles click on the window and closes modal if shown
     $(window).click((event) => {
         if (event.target.classList.contains("modal")) {
-            $("#Task__modal").removeClass("show-modal")
+            hideModal()
         }
     })
 }

@@ -28,10 +28,9 @@ const showTaskView = () => {
     const userID = UserManager.currentUser()
     APIManager.getAllOfCollection("Tasks")
         .then(response => {
-            console.log(response)
             response.forEach(task => {
                 if (parseInt(task.userID) === userID) {
-                    $("#Tasks__output").append(buildTaskCard(task.name, task.id, task.dueDate))
+                    buildTaskCard(task.name, task.id, task.dueDate)
                 }
             })
         })

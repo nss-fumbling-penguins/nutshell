@@ -6,17 +6,34 @@
 const $ = require("jquery")
 
 const buildTaskElement = (title, id, date) => {
-    const taskElement = $(`<div id="Task__card__${id}" class="card"></div>`)
+    const output = $("#Tasks__output")
+    const taskElement = $(`<div id="Task__card__${id}" class="Task__card"></div>`)
     taskElement.append(
         `
             <h4>${title}</h4>
             <p>Due: ${date}</p>
-            <button id="Task__card__complete">complete</button>
-            <button id="Task__card__edit">edit</button>
+            <button id="Complete__task__${id}">complete</button>
+            <button id="Edit__task__${id}">edit</button>
+            <button id="Delete__task__${id}">delete</button>
         `
     )
-    console.log(`card ${id} built`)
-    return taskElement
+    output.append(taskElement)
+
+    //add event listeners to buttons
+    //delete task
+    $(`#Delete__task__${id}`).click(() => {
+        console.log("deleted", id)
+    })
+
+    //edit task
+    $(`#Edit__task__${id}`).click(() => {
+        console.log("editing", id)
+    })
+
+    //complete task
+    $(`#Complete__task__${id}`).click(() => {
+        console.log(id, "completed")
+    })
 }
 
 
