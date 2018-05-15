@@ -23,7 +23,13 @@ module.exports = function (grunt) {
             ]
         },
         browserify: {
-                        dist: {
+            options: {
+                browserifyOptions: {
+                    debug: true,
+                    paths: ["./scripts"],
+                }
+            },
+             dist: {
                                 files: {
                                         "../dist/scripts/bundle.js": ["scripts/**/*.js"]
                                 }
