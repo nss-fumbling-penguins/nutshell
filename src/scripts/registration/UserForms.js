@@ -40,7 +40,7 @@ const userForms = Object.create({}, {
                                 $("#email").val()
                             )
                     } else
-                        $("#signup-form").append("<p class='alert'>User name already taken, please choose another</p>") 
+                        alert("User name already taken, please choose another")
                     })
                 })
         }
