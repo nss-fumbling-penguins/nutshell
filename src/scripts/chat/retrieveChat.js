@@ -38,7 +38,7 @@ const retrieveChat = Object.create(null, {
 				out.printAll(msgArray)
 				retrieveChat.iter = msgArray.length
 			}).then(()=>{
-				let listen = setInterval(retrieveChat.main, 10000)
+				let listen = setInterval(retrieveChat.main, 5000)
 			})
 		}
 	}
