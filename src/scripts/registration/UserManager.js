@@ -46,7 +46,7 @@ const userManager = Object.create({}, {
         /*function to build the signout view*/
     }, 
     currentUser: {
-        value: () => {JSON.parse(sessionStorage.getItem("user"))}
+        value: () => {return JSON.parse(sessionStorage.getItem("user"))}
     }
 })
 

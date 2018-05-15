@@ -20,6 +20,7 @@ const showTaskView = () => {
             </div>
             <div id="Tasks__form" class="hide">
                 <input type="text" id="Tasks__input__title" placeholder="title">
+                <input type="date" id="Tasks__input__date">
                 <button id="Tasks__button__submit">Submit</button>
                 <button id="Tasks__button__cancel">Cancel</button>
             </div>
@@ -27,7 +28,7 @@ const showTaskView = () => {
         `
     )
 
-    
+
     //append parent div to output
     output.append(taskView)
 }
