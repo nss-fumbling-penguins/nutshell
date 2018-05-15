@@ -20,7 +20,11 @@ const userManager = Object.create({}, {
                     "password": `${pass}`, 
                     "email": `${email}`
                 }
-            })}
+            }).then(newUser => {
+                const id = newUser.id
+                userManager.logInUser(id)
+            })
+        }
     },
     authenticated: {
         value: (username, pass) => {
