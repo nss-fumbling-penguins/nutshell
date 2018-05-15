@@ -28,16 +28,15 @@ const userManager = Object.create({}, {
     },
     authenticated: {
         value: (username, pass) => {
-            APIManager.getAllOfCollection("users").then(users => {
-                const user = users.find(user => user.username === username)
+            APIManager.getAllOfCollection("users").then(users => {  const user = users.find(user => user.username === username)
                 if (!user) {
                     return false
                 } else if (user.password === pass) {
-                        return true
-                    } else {
-                        return false
-                    }
+                    return true
+                } else {
+                    return false
                 }
+            })
         }
     }, 
     logInUser: {
