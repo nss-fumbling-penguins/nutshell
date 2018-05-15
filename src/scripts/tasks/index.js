@@ -4,5 +4,7 @@
 */
 
 const showTaskView = require("./taskView")
+const ActivateTaskFormButtons = require("./TaskFormButtons")
 
 showTaskView()
+ActivateTaskFormButtons()
