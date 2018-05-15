@@ -16,7 +16,6 @@ const hideModal = () => {
 // file to eventually hold create task form as modal popup
 const editTask = (id) => {
 
-    console.log("editing", id)
 
     //handle events that should close modal
     $("#editTask__modal").addClass("show-modal")
