@@ -17,7 +17,6 @@ const showModal = () => {
 
 //hide the task modal
 const hideModal = () => {
-    console.log("modal hidden")
     $("#Task__modal").removeClass("show-modal")
 }
 
@@ -59,7 +58,7 @@ const activateTaskFormButtons = () => {
     })
 
     //handles click on the cancel task creation button
-    $("#Tasks__button__cancel").click(() => {
+    $("#Task__modal__close").click(() => {
         hideModal()
         clearFormFields()
     })
