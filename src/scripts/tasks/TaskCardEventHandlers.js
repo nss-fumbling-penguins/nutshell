@@ -6,6 +6,7 @@
 const $ = require("jquery")
 const editTask = require("./editTaskForm")
 const deleteTask = require("./deleteTask")
+const APIManager = require("../api/APIManager")
 
 const activateTaskCardButtons = (id) => {
     //add event listeners to buttons
@@ -22,7 +23,13 @@ const activateTaskCardButtons = (id) => {
 
     //complete task
     $(`#Complete__task__${id}`).click(() => {
-        console.log(id, "completed")
+        $(`#Task__card__${id}__buttons`).empty()
+        $(`#Task__card__${id}__buttons`).append("<p class=\"complete\">complete</p>")
+        APIManager.getOneOfCollection("Tasks", id)
+            .then(response => {
+                response.completed = true
+                APIManager.updateItem("Tasks", id, response)
+            })
     })
 }
 

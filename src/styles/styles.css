@@ -8,6 +8,13 @@
     display: none;
 }
 
+
+/* Tasks styles */
+
+.complete {
+    color: green;
+}
+
 /* modal styles */
 
 .modal {

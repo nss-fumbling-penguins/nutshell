@@ -13,9 +13,11 @@ const buildTaskElement = (title, id, date) => {
         `
             <h4 class="Task__card__title">${title}</h4>
             <p class="Task__card__date">Due: ${date}</p>
-            <button id="Complete__task__${id}">complete</button>
-            <button id="Edit__task__${id}">edit</button>
-            <button id="Delete__task__${id}">delete</button>
+            <div id="Task__card__${id}__buttons">
+                <button id="Complete__task__${id}">complete</button>
+                <button id="Edit__task__${id}">edit</button>
+                <button id="Delete__task__${id}">delete</button>
+            </div>
         `
     )
     output.append(taskElement)
