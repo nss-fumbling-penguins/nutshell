@@ -4,6 +4,9 @@
 */
 
 const $ = require("jquery")
+const APIManager = require("../api/APIManager")
+const UserManager = require("../registration/UserManager")
+const buildTaskCard = require("./buildTaskCard")
 
 const showTaskView = () => {
     //get refference to main div
@@ -28,6 +31,16 @@ const showTaskView = () => {
         `
     )
 
+    const userID = UserManager.currentUser()
+    APIManager.getAllOfCollection("Tasks")
+        .then(response => {
+            console.log(response)
+            response.forEach(task => {
+                if (parseInt(task.userID) === userID) {
+                    $("#Tasks__output").append(buildTaskCard(task.name, task.id, task.dueDate))
+                }
+            })
+        })
 
     //append parent div to output
     output.append(taskView)
