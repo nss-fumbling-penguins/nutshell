@@ -5,12 +5,14 @@
 
 const $ = require("jquery")
 const editTask = require("./editTaskForm")
+const deleteTask = require("./deleteTask")
 
 const activateTaskCardButtons = (id) => {
     //add event listeners to buttons
     //delete task
     $(`#Delete__task__${id}`).click(() => {
-        console.log("deleted", id)
+        deleteTask(id)
+        $(`#Task__card__${id}`).remove()
     })
 
     //edit task

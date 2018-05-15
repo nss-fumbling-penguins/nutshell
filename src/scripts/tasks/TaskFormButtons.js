@@ -46,7 +46,6 @@ const activateTaskFormButtons = () => {
         //call function to send task to api
         APIManager.createItem("Tasks", task)
             .then(response => {
-                console.log(response)
                 title = response.name
                 id = response.id
                 dueDate = response.dueDate
