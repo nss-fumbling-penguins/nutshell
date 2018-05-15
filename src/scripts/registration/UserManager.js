@@ -4,7 +4,7 @@ Author: Joshua Barton
 This module creates users, logs in and out, gets current user.
 */
 const $ =require("jquery")
-const APIManager = require("./APIManager")
+const APIManager = require("../api/APIManager")
 
 
 const userManager = Object.create({}, {
