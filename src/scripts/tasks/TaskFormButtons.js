@@ -10,12 +10,14 @@ const UserManager = require("../registration/UserManager")
 const APIManager = require("../api/APIManager")
 
 const activateTaskFormButtons = () => {
+    //handles click on the create new task button
     $("#Tasks__button__createTask").click(() => {
-        $("#Tasks__form").removeClass("hide")
+        $("#Task__modal").addClass("show-modal")
     })
 
+    //handles click on task submit button
     $("#Tasks__button__submit").click(() => {
-        $("#Tasks__form").addClass("hide")
+        $("#Task__modal").removeClass("show-modal")
         //get current user
         userID = UserManager.currentUser()
         //create task object
@@ -34,9 +36,17 @@ const activateTaskFormButtons = () => {
         $("#Tasks__input__title").val("")
     })
 
+    //handles click on the cancel task creation button
     $("#Tasks__button__cancel").click(() => {
-        $("#Tasks__form").addClass("hide")
+        $("#Task__modal").removeClass("show-modal")
         $("#Tasks__input__title").val("")
+    })
+
+    //handles click on the window and closes modal if shown
+    $(window).click((event) => {
+        if (event.target.classList.contains("modal")) {
+            $("#Task__modal").removeClass("show-modal")
+        }
     })
 }
 

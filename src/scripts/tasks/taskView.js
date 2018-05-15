@@ -21,12 +21,6 @@ const showTaskView = () => {
                 <h3>Task List</h3>
                 <button id="Tasks__button__createTask">Add Task</button>
             </div>
-            <div id="Tasks__form" class="hide">
-                <input type="text" id="Tasks__input__title" placeholder="title">
-                <input type="date" id="Tasks__input__date">
-                <button id="Tasks__button__submit">Submit</button>
-                <button id="Tasks__button__cancel">Cancel</button>
-            </div>
             <div id="Tasks__output"></div>
         `
     )

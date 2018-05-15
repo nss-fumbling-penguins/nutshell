@@ -5,6 +5,8 @@
 
 const showTaskView = require("./taskView")
 const ActivateTaskFormButtons = require("./TaskFormButtons")
+const createTaskForm = require("./newTaskForm")
 
 showTaskView()
+createTaskForm()
 ActivateTaskFormButtons()
