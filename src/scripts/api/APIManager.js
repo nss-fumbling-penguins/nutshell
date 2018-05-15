@@ -24,16 +24,6 @@ const APIManager = Object.create(null, {
         }
     },
     //post methods
-    //method to create user
-    createUser: {
-        value: function (data) {
-            return $.ajax({
-                url: "http://localhost:8088/Users",
-                method: "POST",
-                data: data
-            })
-        }
-    },
     //method to create items of the collection type passed to it
     createItem: {
         value: function (collection, data) {
