@@ -8,6 +8,7 @@ const APIManager = require("../api/APIManager")
 const UserManager = require("../registration/UserManager")
 const removeFriend = require("./removeFriend")
 const activateFriendsListButtons = require("./friendsListEventHandlers")
+const buildFriendCard = require("./createFriendElement")
 
 const showFriendsList = () => {
     const output = $("#main-page")
@@ -33,24 +34,7 @@ const showFriendsList = () => {
 
             //take friends collection and make an element for each of them
             friends.forEach(friend => {
-                //create card parent div
-                const friendCard = $(`<div id="Friend__${friend.id}"></div>`)
-                //append static content
-                friendCard.append(
-                    `
-                        <h3>${friend.firstName} ${friend.lastName}</h3>
-                        <p>User Name: ${friend.username}</p>
-                        <button class="Friend__remove" id="Friend__btn__remove__${friend.id}">Remove</button>
-                    `
-                )
-                //handle click event on button button element
-                friendCard.click((event) => {
-                    if (event.target.classList.value === "Friend__remove") {
-                        removeFriend(friend.firstName, friend.id)
-                    }
-                })
-                //append button to friend card
-                // friendCard.append(removeFriendButton)
+                friendCard = buildFriendCard(friend.id, friend.firstName, friend.lastName, friend.username)
                 //append card to parent list
                 friendsList.append(friendCard)
             })

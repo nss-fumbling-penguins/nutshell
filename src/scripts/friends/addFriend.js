@@ -3,8 +3,10 @@
     Authors: Riley Mathews
 */
 
-APIManager = require("../api/APIManager")
-UserManager = require("../registration/UserManager")
+const $ = require("jquery")
+const APIManager = require("../api/APIManager")
+const UserManager = require("../registration/UserManager")
+const buildFriendCard = require("./createFriendElement")
 
 const addFriend = (usernameToAdd) => {
     APIManager.getAllOfCollection("Users")
@@ -13,6 +15,8 @@ const addFriend = (usernameToAdd) => {
             const friendId = friendToAdd.id
             //get current user
             const currentUserId = UserManager.currentUser()
+            friendCard = buildFriendCard(friendToAdd.id, friendToAdd.firstName, friendToAdd.lastName, friendToAdd.username)
+            $("#friends").append(friendCard)
             relationship = 
             {
                 "userID": currentUserId,

@@ -37,6 +37,15 @@ const activateFriendsListButtons = () => {
         hideAddFriendModal()
         clearAddFriendFormFields()
     })
+
+    $("#Friend__modal__input__username").keypress(function (e) {
+        var key = e.which
+        if (key === 13) { 
+            addFriend($("#Friend__modal__input__username").val())
+            hideAddFriendModal()
+            clearAddFriendFormFields()
+        }
+    })
 }
 
 module.exports = activateFriendsListButtons
