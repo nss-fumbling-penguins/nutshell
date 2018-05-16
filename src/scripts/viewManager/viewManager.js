@@ -6,7 +6,9 @@ This module builds the three views of the app: welcome, dashboard, and signed-ou
 const $ = require("jquery")
 const APIManager = require("../api/APIManager")
 const userForms = require("../registration/UserForms")
+const friendsList = require("../friends/friendsInit")
 const buildChat = require("../chat/buildChat")
+
 
 const viewManager = Object.create({}, {
     buildLandingPage: {
@@ -59,6 +61,7 @@ const viewManager = Object.create({}, {
                 //function to build events
                 
                 // function to build news
+                friendsList()
             })
 
         }
