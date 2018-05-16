@@ -3,7 +3,6 @@
     Authors: Riley Mathews
 */
 const $ = require("jquery")
-const userManager = require("../registration/UserManager")
 
 const APIManager = Object.create(null, {
     //method to get everything from the api
@@ -24,8 +23,10 @@ const APIManager = Object.create(null, {
             const friendItems = [];
             return $.ajax("http://localhost:8088/relationships")
                 .then(relationships => {
-                    relationships.filter(relationship => relationship.userID === userID)
-                    .forEach(relationship => friends.push(relationship.followID))
+                    relationships.filter(relationship => parseInt(relationship.userID) === userID)
+                    .forEach(relationship => {
+                        friends.push(parseInt(relationship.followID))
+                    })
                     return friends;
                 })
                 .then(friends => {
@@ -34,10 +35,10 @@ const APIManager = Object.create(null, {
                 .then(data => {
                     data.forEach(item =>{
                         friends.forEach(friend =>{
-                            if(item.userID === friend) friendItems.push(item);
+                            if(parseInt(item.userID) === friend) friendItems.push(item);
                         })
                         //this adds current users posts to array
-                        if(item.userID === userID) friendItems.push(item);
+                        if(parseInt(item.userID) === userID) friendItems.push(item);
                     })
                     return friendItems;
                 })

@@ -4,6 +4,7 @@ const userManager = require("../registration/UserManager");
 const buildEventCard = require("./buildEventCard")
 
 const showEventView = () => {
+    console.log("hello");
     const output = $("#main-page")
     const eventView = $("<div id=\"Events\"></div>")
     eventView.append(
@@ -19,9 +20,9 @@ const showEventView = () => {
     APIManager.getFriendCollection("Events", userID)
         .then(friendItems => {
             friendItems.forEach(event => {
-                buildEventCard(event.name, event.id, event.date, event.location)
-            })
+                    buildEventCard(event.name, event.id, event.date, event.location, event.userID)
         })
+    })
     output.append(eventView)
 }
 module.exports = showEventView

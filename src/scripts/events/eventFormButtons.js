@@ -41,9 +41,9 @@ const activateEventFormButtons = () => {
     $("#Events__button__submit").click(() => {
 
         //get current user
-        userID = UserManager.currentUser()
+        const userID = UserManager.currentUser()
         //create Event object
-        event = createEventObject(userID, $("#Events__input__name").val(), $("#Events__input__date").val(), $("#Events__input__location").val())
+        const event = createEventObject(userID, $("#Events__input__name").val(), $("#Events__input__date").val(), $("#Events__input__location").val())
         //call function to send Event to api
         APIManager.createItem("Events", event)
             .then(response => {
@@ -51,8 +51,9 @@ const activateEventFormButtons = () => {
                 const id = response.id
                 const date = response.date
                 const location = response.location
+                const user = response.userID
                 //take the response and append a new card to the dom based on the new Event item
-                buildEventCard(name, id, date, location)
+                buildEventCard(name, id, date, location, user)
             })
         clearFormFields()
         hideModal()

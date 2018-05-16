@@ -16,7 +16,7 @@ const viewManager = Object.create({}, {
                 `<nav>
                 <h1>Nutshell</h1>
                 <input type="button" class="button-login" value="Login">
-                <input type="button" class="button-signup" value="Signup"> 
+                <input type="button" class="button-signup" value="Signup">
                 </nav>
                 <article id="main-page">
                 <p>Nutshell is a great way to keep track of your entire life.  Anything you can't track in Nutshell must not be that important.  Sign up today!</p>
@@ -32,7 +32,7 @@ const viewManager = Object.create({}, {
                 userForms.buildSignUpForm()
             })
         }
-    }, 
+    },
     buildDashboard: {
 		value: (id) => {
 			APIManager.getOneOfCollection("Users", id).then(user => {
@@ -53,7 +53,10 @@ const viewManager = Object.create({}, {
                 })
                 // function to build tasks section
 				const initializeTasks = require("../tasks/TasksInit")
-				initializeTasks()
+                initializeTasks()
+                //function to build events section
+                const initializeEvents = require("../events/initEvents")
+                initializeEvents()
 				// function to build chat section
 				buildChat.buildChat()
                 //function to build events
@@ -61,7 +64,7 @@ const viewManager = Object.create({}, {
             })
 
         }
-    }, 
+    },
     buildSignedOut: {
         value: () => {
             $("#wrapper").empty()
@@ -69,7 +72,7 @@ const viewManager = Object.create({}, {
                 `<nav>
                 <h1>Nutshell</h1>
                 <input type="button" class="button-login" value="Login">
-                <input type="button" class="button-signup" value="Signup"> 
+                <input type="button" class="button-signup" value="Signup">
                 </nav>
                 <article id="main-page">
                 <p>You are now logged out.</p>
@@ -80,7 +83,7 @@ const viewManager = Object.create({}, {
                 $("#main-page").empty()
                 userForms.buildLoginForm()
             })
-            
+
             $(".button-signup").click(event => {
                 $("#main-page").empty()
                 userForms.buildSignUpForm()

@@ -7,16 +7,15 @@ const $ = require("jquery")
 const APIManager = require("../api/APIManager")
 const createEventObject = require("./createEventObject")
 const UserManager = require("../registration/UserManager")
+const editEventForm = require("./createEditEventForm");
 
 const hideModal = () => {
     $("#editEvent__modal").removeClass("show-modal")
 }
 
-
 // file to eventually hold create Event form as modal popup
 const editEvent = (id) => {
-
-
+    editEventForm(id);
     //handle events that should close modal
     $("#editEvent__modal").addClass("show-modal")
     $(window).click(event => {
