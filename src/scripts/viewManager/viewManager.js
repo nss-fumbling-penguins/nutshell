@@ -6,6 +6,7 @@ This module builds the three views of the app: welcome, dashboard, and signed-ou
 const $ = require("jquery")
 const APIManager = require("../api/APIManager")
 const userForms = require("../registration/UserForms")
+const buildChat = require("../chat/buildChat")
 
 const viewManager = Object.create({}, {
     buildLandingPage: {
@@ -23,21 +24,21 @@ const viewManager = Object.create({}, {
                 </article>`
             )
             $(".button-login").click(event => {
-                $("#main-page").empty()
+				$("#main-page").empty()
                 userForms.buildLoginForm()
             })
             $(".button-signup").click(event => {
-                $("#main-page").empty()
+				$("#main-page").empty()
                 userForms.buildSignUpForm()
             })
         }
     }, 
     buildDashboard: {
-        value: (id) => {
-            APIManager.getOneOfCollection("Users", id).then(user => {
-                $("#wrapper").empty()
+		value: (id) => {
+			APIManager.getOneOfCollection("Users", id).then(user => {
+				$("#wrapper").empty()
                 $("#wrapper").append(
-                    `<nav>
+					`<nav>
                     <h1>Nutshell</h1>
                     <input type="button" id="button-logout" value="Logout">
                     <span id="current-user">${user.firstName}</span>
@@ -45,13 +46,16 @@ const viewManager = Object.create({}, {
                     <article id="main-page"></article>`
                 )
                 $("#button-logout").click(event => {
-                    $("#main-page").empty()
+					$("#main-page").empty()
                     const userManager = require("../registration/UserManager")
                     userManager.logOutUser()
                     viewManager.buildSignedOut()
                 })
                 // function to build tasks section
-                // function to build chat section
+				const initializeTasks = require("../tasks/TasksInit")
+				initializeTasks()
+				// function to build chat section
+				buildChat.buildChat()
                 //function to build events
                 // function to build news
             })

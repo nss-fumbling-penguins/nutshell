@@ -16,12 +16,14 @@ const chatActor = Object.create(null, {
 	buildChat:
 		{
 			value: function() {
-				const chatRef = $("#chat")
+				const chatRef = $("#main-page")
 				
 				let chatbox = `
-					<div id="chatBox"></div>
-					<div id="chatInputSection">
-						<input type="text" id="chatInput">
+					<div id="chat">
+						<div id="chatBox"></div>
+						<div id="chatInputSection">
+							<input type="text" id="chatInput">
+						</div>
 					</div>`
 				
 				chatRef.append(chatbox)
