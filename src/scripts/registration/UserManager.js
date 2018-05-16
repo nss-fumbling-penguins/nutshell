@@ -7,6 +7,8 @@ const $ =require("jquery")
 const APIManager = require("../api/APIManager")
 
 
+
+
 const userManager = Object.create({}, {
     createNewUser: {
         value: (first, last, username, pass, email) => {
@@ -39,13 +41,18 @@ const userManager = Object.create({}, {
     logInUser: {
         value: (id) => {
             sessionStorage.setItem("user", id)
-            /*function to build dashboard view */
+            const viewManager = require("../viewManager/viewManager")
+            viewManager.buildDashboard(id)
         }
            
     }, 
     logOutUser: {
-        value: () => {sessionStorage.removeItem("user")}
-        /*function to build the signout view*/
+        value: () => {
+            sessionStorage.removeItem("user")
+            const viewManager = require("../viewManager/viewManager")
+            viewManager.buildSignedOut()
+        }
+
     }, 
     currentUser: {
         value: () => {return JSON.parse(sessionStorage.getItem("user"))}
