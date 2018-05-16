@@ -1,35 +1,25 @@
 const $ = require("jquery")
 const APIManager = require("../api/APIManager");
 const userManager = require("../registration/UserManager");
+const buildEventCard = require("./buildEventCard")
 
 const showEventView = () => {
     const output = $("#main-page")
-    const eventView = $("<div id=\"events\"></div>")
+    const eventView = $("<div id=\"Events\"></div>")
     eventView.append(
         `
-            <div id="events__header">
+            <div id="Events__header">
                 <h3>Event List</h3>
-                <button id="events__button__createEvent">Add Event</button>
+                <button id="Events__button__createEvent">Add Event</button>
             </div>
-            <div id="events__output"></div>
+            <div id="Events__output"></div>
         `
     )
-    sessionStorage.setItem("user", JSON.stringify(4));
-    const user = userManager.currentUser();
-    APIManager.getFriendCollection("Events", user)
+    const userID = userManager.currentUser();
+    APIManager.getFriendCollection("Events", userID)
         .then(friendItems => {
             friendItems.forEach(event => {
-                $("#events__output").append(`
-                    <div id=event__${event.id}>
-                        <h3>${event.name}</h3>
-                        <h3>${event.date}</h3>
-                        <h3>${event.location}</h3>
-                    </div>
-                    <div class="added-by">
-                        <p>Added by ${event.userID}</p>
-                    </div>
-
-                `)
+                buildEventCard(event.name, event.id, event.date, event.location)
             })
         })
     output.append(eventView)

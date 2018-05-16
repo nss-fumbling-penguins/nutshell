@@ -1,4 +1,4 @@
-/* 
+/*
     module to add event handlers to the buttons on the create task form, as well as the button to show it
     Authors: Riley Mathews
 */
@@ -38,7 +38,7 @@ const activateTaskFormButtons = () => {
 
     //handles click on task submit button
     $("#Tasks__button__submit").click(() => {
-        
+
         //get current user
         userID = UserManager.currentUser()
         //create task object
@@ -52,7 +52,7 @@ const activateTaskFormButtons = () => {
                 //take the response and append a new card to the dom based on the new task item
                 buildTaskCard(title, id, dueDate)
             })
-        
+
         clearFormFields()
         hideModal()
     })
