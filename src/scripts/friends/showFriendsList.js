@@ -25,8 +25,8 @@ const showFriendsList = () => {
             const currentUser = UserManager.currentUser()
 
             //filter array by current user id
-            const friendIntersections = relationships.filter(relationship => relationship.userID === currentUser)
-            const friendIds = friendIntersections.map(intersection => intersection.followID)
+            const friendIntersections = relationships.filter(relationship => parseInt(relationship.userID) === currentUser)
+            const friendIds = friendIntersections.map(intersection => parseInt(intersection.followID))
             //iterate through users and find users by friends id
             const friends = users.filter(user => friendIds.includes(user.id))
 
