@@ -40,7 +40,6 @@ const retrieveChat = Object.create(null, {
 
 				out.printAll(msgArray)
 				window.addEventListener("storage", function(event){
-					console.log(event)
 					retrieveChat.handle()
 				})
 			})
