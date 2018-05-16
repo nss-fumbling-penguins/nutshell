@@ -15,14 +15,18 @@ const addFriend = (usernameToAdd) => {
             const friendId = friendToAdd.id
             //get current user
             const currentUserId = UserManager.currentUser()
-            friendCard = buildFriendCard(friendToAdd.id, friendToAdd.firstName, friendToAdd.lastName, friendToAdd.username)
-            $("#friends").append(friendCard)
-            relationship = 
-            {
-                "userID": currentUserId,
-                "followID": friendId
+            if (currentUserId === friendId) {
+                alert("you can't add yourself as a friend")
+            } else {
+                friendCard = buildFriendCard(friendToAdd.id, friendToAdd.firstName, friendToAdd.lastName, friendToAdd.username)
+                $("#friends").append(friendCard)
+                relationship = 
+                {
+                    "userID": currentUserId,
+                    "followID": friendId
+                }
+                APIManager.createItem("Relationships", relationship)
             }
-            APIManager.createItem("Relationships", relationship)
         })
 }
 
