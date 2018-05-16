@@ -8,7 +8,11 @@ const ActivateTaskFormButtons = require("./TaskFormButtons")
 const createTaskForm = require("./newTaskForm")
 const createEditTaskForm = require("./createEditTaskForm")
 
-createEditTaskForm()
-showTaskView()
-createTaskForm()
-ActivateTaskFormButtons()
+const initializeTasks = () => {
+    createEditTaskForm()
+    showTaskView()
+    createTaskForm()
+    ActivateTaskFormButtons()
+}
+
+module.exports = initializeTasks
