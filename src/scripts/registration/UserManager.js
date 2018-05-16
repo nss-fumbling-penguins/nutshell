@@ -3,7 +3,7 @@ User Manager Module
 Author: Joshua Barton
 This module creates users, logs in and out, gets current user.
 */
-const $ =require("jquery")
+const $ = require("jquery")
 const APIManager = require("../api/APIManager")
 
 
@@ -14,39 +14,41 @@ const userManager = Object.create({}, {
                 "firstName": `${first}`,
                 "lastName": `${last}`,
                 "username": `${username}`,
-                "password": `${pass}`, 
-                "email": `${email}`}).then(newUser => {
-                const id = newUser.id
-                userManager.logInUser(id)
+                "password": `${pass}`,
+                "email": `${email}`
             })
+                .then(newUser => {
+                    const id = newUser.id
+                    userManager.logInUser(id)
+                })
         }
     },
-    authenticated: {
+    authenticate: {
         value: (username, pass) => {
-            APIManager.getAllOfCollection("Users").then(users => {  const user = users.find(user => user.username === username)
+            APIManager.getAllOfCollection("Users").then(users => {
+                const user = users.find(user => user.username === username)
                 if (!user) {
-                    return false
+                    alert("Username does not match our records, try again")
                 } else if (user.password === pass) {
-                    return true
+                    userManager.logInUser(user.id)
                 } else {
-                    return false
+                    alert("Incorrect Password, please try again.")
                 }
             })
         }
-    }, 
+    },
     logInUser: {
         value: (id) => {
-            APIManager.getOneOfCollection("Users", id).then(user => {
-            sessionStorage.setItem("user", JSON.stringify(user.id))
-            })
-            /*function to build dashboard view */}
-    }, 
+            sessionStorage.setItem("user", id)
+            /*function to build dashboard view */
+        }
+    },
     logOutUser: {
-        value: () => {sessionStorage.removeItem("user")}
+        value: () => { sessionStorage.removeItem("user") }
         /*function to build the signout view*/
-    }, 
+    },
     currentUser: {
-        value: () => {JSON.parse(sessionStorage.getItem("user"))}
+        value: () => { return JSON.parse(sessionStorage.getItem("user")) }
     }
 })
 
