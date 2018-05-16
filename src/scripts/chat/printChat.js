@@ -1,3 +1,11 @@
+/*
+/	Module:		 Print Chat
+/	Author: 	 Levi Schubert
+/	Description: The module responsible for adding new messages and
+/				 updating messages on the chat panel
+*/
+
+
 const $ = require("jquery")
 const UserManager = require("../registration/UserManager")
 const api = require("../api/APIManager")
@@ -19,7 +27,7 @@ const printChat = Object.create(null, {
 			let time = (date.getHours() +":" + ( "0" + date.getMinutes()).substr(-2))
 			if(msg.userID === user){
 				//set class to chatRight
-				chat = `<div class="chatMsg chatRight">
+				chat = `<div class="chatMsg chatRight" id="${msg.timeStamp}">
 					<span class="chatUser">${printChat.users[((msg.userID) -1)]}: </span>
 					<span class="chatText">${msg.message}</span>
 					<p class="chatTime">${time}</p>
@@ -27,13 +35,14 @@ const printChat = Object.create(null, {
 					$("#chatBox").append(chat)
 			}else{
 				//set class to chatLeft
-				chat = `<div class="chatMsg chatLeft">
+				chat = `<div class="chatMsg chatLeft" id="${msg.timeStamp}">
 					<span class="chatUser">${printChat.users[((msg.userID) -1)]}: </span>
 					<span class="chatText">${msg.message}</span>
 					<p class="chatTime">${time}</p>
 					</div>`
 					$("#chatBox").append(chat)
 			}
+			$("#chatBox").animate({ scrollTop: $("#chatBox").prop("scrollHeight")}, 1000)
 		}
 	},
 	printAll:{
@@ -69,7 +78,9 @@ const printChat = Object.create(null, {
 						}
 					}
 				})
-				$("#chatBox").append(msgs)
+				$("#chatBox").append(msgs).then(
+					$("#chatBox").animate({ scrollTop: $("#chatBox").prop("scrollHeight")}, 1000)
+				)
 			})
 		}
 	}

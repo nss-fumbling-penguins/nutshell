@@ -1,8 +1,16 @@
+/*
+/	Module:		 Build Chat
+/	Author: 	 Levi Schubert
+/	Description: The module responsible for building the chat panel
+/				 on the dom and initializing all chat modules
+*/
+
 const $ = require("jquery")
 const print = require("./printChat")
 const retrieve = require("./retrieveChat")
 const api = require("../api/APIManager")
 const user = require("../registration/UserManager")
+const chatStorage = require("./chatStorage")
 
 const chatActor = Object.create(null, {
 	buildChat:
@@ -31,13 +39,12 @@ const chatActor = Object.create(null, {
 					let data = {
 						"userID": user.currentUser(),
 						"message": text,
-						"timeStamp": Date.now(),
-						"assigned": "true",
-						"id": retrieve.iter
+						"timeStamp": Date.now()
 					}
-					input.val("") // = ""
-					api.updateItem("messages", retrieve.iter, data)
-					api.createItem("messages", {"assigned":"false"})
+					input.val("")
+					api.createItem("messages", data)
+					chatStorage.save(data)
+					retrieve.onCreate(data)
 				}
 			})
 			retrieve.init()

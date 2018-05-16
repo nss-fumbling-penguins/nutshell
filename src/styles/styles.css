@@ -1,0 +1,19 @@
+/* chatBox css */
+
+#chat{
+	min-height: 400px;
+	max-height: 400px;
+	width: 40%;
+	border: 2px solid black;
+}
+
+#chatBox{
+	max-height: 380px;
+	min-height: 380px;
+	overflow-y: scroll;
+}
+
+#chatInput{
+	width: 100%;
+	border-top:2px solid black;
+}
