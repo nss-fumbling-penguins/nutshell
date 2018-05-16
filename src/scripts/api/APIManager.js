@@ -44,6 +44,31 @@ const APIManager = Object.create(null, {
             })
         }
     },
+    getFriendCollection: {
+        value: function(collection, userID){
+            const friends = [];
+            const friendItems = [];
+            return $.ajax("http://localhost:8088/relationships")
+                .then(relationships => {
+                    relationships.filter(relationship => relationship.userID === userID)
+                    .forEach(relationship => friends.push(relationship.followID))
+                    return friends;
+                })
+                .then(friends => {
+                    return $.ajax(`http://localhost:8088/${collection}`)
+                })
+                .then(data => {
+                    data.forEach(item =>{
+                        friends.forEach(friend =>{
+                            if(parseInt(item.userID) === friend) friendItems.push(item);
+                        })
+                        //this adds current users posts to array
+                        if(parseInt(item.userID) === userID) friendItems.push(item);
+                    })
+                    return friendItems;
+                })
+        }
+    },
     //update methods
     //method to update item of [id] and [collection] with [data] passed to it
     updateItem: {
