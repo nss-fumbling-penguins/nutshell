@@ -55,9 +55,7 @@ const userManager = Object.create({}, {
 
     }, 
     currentUser: {
-
-        value: () => {return JSON.parse(sessionStorage.getItem("user"))}
-
+        value: () => { return JSON.parse(sessionStorage.getItem("user")) }
     }
 })
 

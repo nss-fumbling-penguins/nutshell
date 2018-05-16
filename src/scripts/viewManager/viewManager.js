@@ -57,6 +57,7 @@ const viewManager = Object.create({}, {
 				// function to build chat section
 				buildChat.buildChat()
                 //function to build events
+                
                 // function to build news
             })
 
