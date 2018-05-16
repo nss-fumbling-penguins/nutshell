@@ -29,7 +29,7 @@ const showTaskView = () => {
     APIManager.getAllOfCollection("Tasks")
         .then(response => {
             response.forEach(task => {
-                if (parseInt(task.userID) === userID && Boolean(task.completed) !== true) {
+                if (parseInt(task.userID) === userID && task.completed === "false") {
                     buildTaskCard(task.name, task.id, task.dueDate)
                 }
             })

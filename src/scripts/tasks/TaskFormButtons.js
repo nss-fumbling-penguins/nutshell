@@ -22,8 +22,8 @@ const hideModal = () => {
 
 //clear the form fields of the task modal
 const clearFormFields = () => {
-    $("#Task__input__title").val("")
-    $("#Task__input__date").val("")
+    $("#Tasks__input__title").text("")
+    $("#Tasks__input__date").text("")
 }
 
 //main function of module, activate event handlers for buttons
@@ -38,7 +38,7 @@ const activateTaskFormButtons = () => {
 
     //handles click on task submit button
     $("#Tasks__button__submit").click(() => {
-        hideModal()
+        
         //get current user
         userID = UserManager.currentUser()
         //create task object
@@ -54,6 +54,7 @@ const activateTaskFormButtons = () => {
             })
         
         clearFormFields()
+        hideModal()
     })
 
     //handles click on the cancel task creation button
