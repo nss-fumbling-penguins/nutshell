@@ -78,9 +78,9 @@ const printChat = Object.create(null, {
 						}
 					}
 				})
-				$("#chatBox").append(msgs).then(
-					$("#chatBox").animate({ scrollTop: $("#chatBox").prop("scrollHeight")}, 1000)
-				)
+				$("#chatBox").append(msgs)
+				$("#chatBox").animate({ scrollTop: $("#chatBox").prop("scrollHeight")}, 1000)
+				
 			})
 		}
 	}
