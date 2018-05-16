@@ -5,4 +5,8 @@
 
 const showFriendsList = require("./showFriendsList")
 
-showFriendsList()
+const initializeFriendsList = () => {
+    showFriendsList()
+}
+
+module.exports = initializeFriendsList
