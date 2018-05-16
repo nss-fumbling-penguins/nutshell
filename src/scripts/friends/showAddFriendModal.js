@@ -8,4 +8,4 @@ const showAddFriendModal = () => {
     $("#Friend__modal").addClass("show-modal")
 }
 
-module.exports = showAddFriendModal()
+module.exports = showAddFriendModal
