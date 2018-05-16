@@ -33,8 +33,18 @@ const printChat = Object.create(null, {
 					</div>`
 				$("#chatBox").append(chat)
 				$(`#${msg.timeStamp}`).on("dblclick", (e) =>{
+					//todo add check to see if there is an edit window open
 					console.log(e)
-					//create edit form here
+					let edit = "<input type=\"text\" class=\"editMsg\">"
+					$(e.currentTarget).append(edit)
+					console.log( $(e.currentTarget).find(".chatText").text())
+					$(e.currentTarget).find(".editMsg").val(`${$(e.currentTarget).find(".chatText").text()}`)
+					$(e.currentTarget).find(".editMsg").on("keyup", function(event) {
+						if (event.keyCode === 13 && $(e.currentTarget).find(".editMsg").val() !== ""){
+							//update this message value and remove the input from the dom
+							$(e.currentTarget).find(".editMsg").remove()
+						}
+					})
 				})
 			}else{
 				//set class to chatLeft
@@ -44,6 +54,10 @@ const printChat = Object.create(null, {
 					<p class="chatTime">${time}</p>
 					</div>`
 					$("#chatBox").append(chat)
+					$(`#${msg.timeStamp} .chatUser`).on("click", (e) =>{
+						console.log(printChat.users[((msg.userID) -1)])
+						//show add friend modal
+					})
 			}
 			$("#chatBox").animate({ scrollTop: $("#chatBox").prop("scrollHeight")}, 1000)
 		}
@@ -98,7 +112,7 @@ const printChat = Object.create(null, {
 				addable.forEach(data => {
 					$(`#${data.id} .chatUser`).on("click", (e) =>{
 						console.log(data.user)
-						//create edit form here
+						//show add friend modal
 					})
 				})
 				$("#chatBox").animate({ scrollTop: $("#chatBox").prop("scrollHeight")}, 1000)
