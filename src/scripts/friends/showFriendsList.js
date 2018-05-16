@@ -7,10 +7,11 @@ const $ = require("jquery")
 const APIManager = require("../api/APIManager")
 const UserManager = require("../registration/UserManager")
 const removeFriend = require("./removeFriend")
+const activateFriendsListButtons = require("./friendsListEventHandlers")
 
 const showFriendsList = () => {
     const output = $("#main-page")
-    const friendsList = $("<div id=\"friends\"><h2>Friends:</h2></div>")
+    const friendsList = $("<div id=\"friends\"><h2>Friends:</h2><button id=\"Friends__btn__add\">Add Friend</button></div>")
 
     //get friends
     //get database
@@ -55,6 +56,7 @@ const showFriendsList = () => {
             })
             //append parent list to main page
             output.append(friendsList)
+            activateFriendsListButtons()
         })
 
     //run function for each friend returned

@@ -4,9 +4,11 @@
 */
 
 const showFriendsList = require("./showFriendsList")
+const createAddFriendForm = require("./addFriendForm")
 
 const initializeFriendsList = () => {
     showFriendsList()
+    createAddFriendForm()
 }
 
 module.exports = initializeFriendsList
