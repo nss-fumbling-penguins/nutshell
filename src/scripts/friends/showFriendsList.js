@@ -12,7 +12,7 @@ const buildFriendCard = require("./createFriendElement")
 
 const showFriendsList = () => {
     const output = $("#main-page")
-    const friendsList = $("<div id=\"friends\"><h4>Friends:</h4><button id=\"Friends__btn__add\">Add Friend</button></div>")
+    const friendsList = $("<div id=\"friends\"><h3>Friends</h3><button id=\"Friends__btn__add\">Add Friend</button></div>")
 
     //get friends
     //get database
