@@ -22,8 +22,8 @@ const hideModal = () => {
 
 //clear the form fields of the task modal
 const clearFormFields = () => {
-    $("#Tasks__input__title").text("")
-    $("#Tasks__input__date").text("")
+    $("#Tasks__input__title").val("")
+    $("#Tasks__input__date").val("")
 }
 
 //main function of module, activate event handlers for buttons
