@@ -1,5 +1,6 @@
 const APIManager = require("./api/APIManager")
 const taskView = require("./tasks")
+const friends = require("./friends")
 const UserManager = require("./registration/UserManager")
 const userForms = require("./registration/UserForms")
 const $ = require("jquery")
