@@ -1,4 +1,6 @@
 const APIManager = require("./api/APIManager")
+const taskView = require("./tasks")
+const UserManager = require("./registration/UserManager")
 const userForms = require("./registration/UserForms")
 const $ = require("jquery")
 
@@ -12,3 +14,4 @@ $("#button-signup").click(event => {
     $("#main-page").empty()
     userForms.buildSignUpForm()
 })
+
