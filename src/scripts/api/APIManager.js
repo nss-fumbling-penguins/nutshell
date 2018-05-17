@@ -50,6 +50,12 @@ const APIManager = Object.create(null, {
             return $.ajax(`http://localhost:8088/${collection}/${id}`)
         }
     },
+    //method to get chat item by timestamp
+    getByTimestamp: {
+        value: function (timestamp) {
+            return $.ajax(`http://localhost:8088/messages?timeStamp=${timestamp}`)
+        }
+    },
     //post methods
     //method to create items of the collection type passed to it
     createItem: {
@@ -69,6 +75,33 @@ const APIManager = Object.create(null, {
                 url: `http://localhost:8088/${collection}/${id}`,
                 method: "DELETE",
             })
+        }
+    },
+    getFriendCollection: {
+        value: function(collection, userID){
+            const friends = [];
+            const friendItems = [];
+            return $.ajax("http://localhost:8088/Relationships")
+                .then(relationships => {
+                    relationships.filter(relationship => parseInt(relationship.userID) === userID)
+                    .forEach(relationship => {
+                        friends.push(parseInt(relationship.followID))
+                    })
+                    return friends;
+                })
+                .then(friends => {
+                    return $.ajax(`http://localhost:8088/${collection}`)
+                })
+                .then(data => {
+                    data.forEach(item =>{
+                        friends.forEach(friend =>{
+                            if(parseInt(item.userID) === friend) friendItems.push(item);
+                        })
+                        //this adds current users posts to array
+                        if(parseInt(item.userID) === userID) friendItems.push(item);
+                    })
+                    return friendItems;
+                })
         }
     },
     //update methods
