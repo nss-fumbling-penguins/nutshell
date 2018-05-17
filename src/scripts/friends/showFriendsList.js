@@ -13,7 +13,7 @@ const buildFriendCard = require("./createFriendElement")
 const showFriendsList = () => {
     const output = $("#main-page")
     const friendsList = $("<div id=\"friends\"><h3>Friends</h3><button id=\"Friends__btn__add\">Add Friend</button></div>")
-
+    output.append(friendsList)
     //get friends
     //get database
     APIManager.getAllDatabase()
@@ -39,7 +39,7 @@ const showFriendsList = () => {
                 friendsList.append(friendCard)
             })
             //append parent list to main page
-            output.append(friendsList)
+            
             activateFriendsListButtons()
         })
 

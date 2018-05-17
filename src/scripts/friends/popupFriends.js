@@ -3,12 +3,16 @@
     Authors: Riley Mathews
 */
 
-require("popper.js")
+const Popper = require("popper.js")
 
 const activatePopup = () => {
-    const popper = document.querySelector("#Show__Friends__List")
-    const popup = document.querySelector("#friends")
-    new Popper(popper, popup, {})
+    const ref = document.querySelector("#Show__Friends__List")
+    const pop = document.querySelector("#friends")
+    new Popper(ref, pop, {
+        modifiers: {
+            preventOverflow: { enabled: false }
+        }
+    })
 }
 
 module.exports = activatePopup
