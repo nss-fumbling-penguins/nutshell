@@ -162,6 +162,14 @@
 }
 
 /* Friends list styles */
+[x-arrow] {
+    position: absolute;
+    border-bottom: 14px solid black;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    top: -14px;
+}
+
 #friends {
     width: 10em;
     border: 1px solid black;
