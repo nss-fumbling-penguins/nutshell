@@ -13,6 +13,7 @@ const user = require("../registration/UserManager")
 const chatStorage = require("./chatStorage")
 
 const chatActor = Object.create(null, {
+	//appends the chat module to the DOM
 	buildChat:
 		{
 			value: function() {
@@ -30,12 +31,11 @@ const chatActor = Object.create(null, {
 				this.init()
 			}
 		},
+	//initializes the chat box with event listener
 	init:{
 		value: function() {
-			//todo add event listener on enter key press in form
 			const input = $("#chatInput")
 			input.on("keyup", function(event) {
-				// debugger
 				if (event.keyCode === 13 && input.val() !== "") {
 					let text = input.val()
 					let data = {
@@ -49,6 +49,7 @@ const chatActor = Object.create(null, {
 					retrieve.onCreate(data)
 				}
 			})
+			//initializes listener for chat and prints all previous messages
 			retrieve.init()
 			
 		}

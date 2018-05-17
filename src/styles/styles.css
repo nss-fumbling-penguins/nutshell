@@ -180,9 +180,9 @@ nav input, nav button {
     justify-content: space-between;
 }
 
-.Task__card p, 
-.Task__card button, 
-.Task__card h4, 
+.Task__card p,
+.Task__card button,
+.Task__card h4,
 .Task__card div {
     display: inline-block;
 }
@@ -267,7 +267,15 @@ nav input, nav button {
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
+/*
+event styling */
 
+.Event__card__content * {
+    display: inline;
+}
+.Event__card__edit * {
+    display: inline;
+}
 /* Friends list styles */
 [x-arrow] {
     position: absolute;

@@ -1,4 +1,4 @@
-/* 
+/*
     App to handle interactions with the api for nutshell
     Authors: Riley Mathews
 */
@@ -15,6 +15,33 @@ const APIManager = Object.create(null, {
     getAllOfCollection: {
         value: function (collection) {
             return $.ajax(`http://localhost:8088/${collection}`)
+        }
+    },
+    getFriendCollection: {
+        value: function(collection, userID){
+            const friends = [];
+            const friendItems = [];
+            return $.ajax("http://localhost:8088/Relationships")
+                .then(relationships => {
+                    relationships.filter(relationship => parseInt(relationship.userID) === userID)
+                    .forEach(relationship => {
+                        friends.push(parseInt(relationship.followID))
+                    })
+                    return friends;
+                })
+                .then(friends => {
+                    return $.ajax(`http://localhost:8088/${collection}`)
+                })
+                .then(data => {
+                    data.forEach(item =>{
+                        friends.forEach(friend =>{
+                            if(parseInt(item.userID) === friend) friendItems.push(item);
+                        })
+                        //this adds current users posts to array
+                        if(parseInt(item.userID) === userID) friendItems.push(item);
+                    })
+                    return friendItems;
+                })
         }
     },
     //method to get one item of [id] and collection passed to it
