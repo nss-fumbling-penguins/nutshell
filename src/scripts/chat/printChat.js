@@ -56,7 +56,6 @@ const printChat = Object.create(null, {
 							chatStorage.save(data)
 							api.getByTimestamp(e.currentTarget.id).then(update => {
 								update[0].message = data.msg
-								console.log(update[0])
 								api.updateItem("messages", update[0].id, update[0])
 							})
 							$(e.currentTarget).find(".editMsg").remove()
@@ -137,7 +136,6 @@ const printChat = Object.create(null, {
 								chatStorage.save(data)
 								api.getByTimestamp(e.currentTarget.id).then(update => {
 									update[0].message = data.msg
-									console.log(update[0])
 									api.updateItem("messages", update[0].id, update[0])
 								})
 								$(e.currentTarget).find(".editMsg").remove()
