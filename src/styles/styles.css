@@ -189,6 +189,14 @@
     border: 1px solid black;
 }
 
+.Friend__card h3 {
+    margin-bottom: .2em;
+}
+
+.Friend__card p {
+    margin: .2em 0 .2em 0;
+}
+
 .Friend__card:nth-child(odd) {
     background-color: rgba(128, 128, 128, 0.233);
 }
