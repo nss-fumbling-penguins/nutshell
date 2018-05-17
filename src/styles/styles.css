@@ -267,6 +267,14 @@ nav input, nav button {
 }
 
 /* Friends list styles */
+[x-arrow] {
+    position: absolute;
+    border-bottom: 14px solid black;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    top: -14px;
+}
+
 #friends {
     width: 10em;
     border: 1px solid black;
@@ -284,6 +292,14 @@ nav input, nav button {
 
 .Friend__card {
     border: 1px solid black;
+}
+
+.Friend__card h3 {
+    margin-bottom: .2em;
+}
+
+.Friend__card p {
+    margin: .2em 0 .2em 0;
 }
 
 .Friend__card:nth-child(odd) {
