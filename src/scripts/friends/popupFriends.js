@@ -17,16 +17,7 @@ const activatePopup = () => {
             }
         },
     })
-    pop.addClass("hide")
-    ref.click(() => {
-        friendPopup.scheduleUpdate()
-        pop.toggleClass("hide")
-        if (ref.text() === "Show Friends List") {
-            ref.text("Hide Friends List")
-        } else if (ref.text() === "Hide Friends List") {
-            ref.text("Show Friends List")
-        }
-    })
+    return friendPopup
 }
 
 module.exports = activatePopup
