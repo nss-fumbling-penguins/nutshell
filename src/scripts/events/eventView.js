@@ -4,7 +4,6 @@ const userManager = require("../registration/UserManager");
 const buildEventCard = require("./buildEventCard")
 
 const showEventView = () => {
-    console.log("hello");
     const output = $("#main-page")
     const eventView = $("<div id=\"Events\"></div>")
     eventView.append(

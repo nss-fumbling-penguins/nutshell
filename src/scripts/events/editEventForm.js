@@ -7,15 +7,15 @@ const $ = require("jquery")
 const APIManager = require("../api/APIManager")
 const createEventObject = require("./createEventObject")
 const UserManager = require("../registration/UserManager")
-const editEventForm = require("./createEditEventForm");
+const createEditEventForm = require("./createEditEventForm");
 
 const hideModal = () => {
-    $("#editEvent__modal").removeClass("show-modal")
+    $("#editEvent__modal").remove();
 }
 
 // file to eventually hold create Event form as modal popup
 const editEvent = (id) => {
-    editEventForm(id);
+    createEditEventForm(id);
     //handle events that should close modal
     $("#editEvent__modal").addClass("show-modal")
     $(window).click(event => {
@@ -40,22 +40,22 @@ const editEvent = (id) => {
         //if true mark that the event was changed and edit the corresponding card
         if (newName !== "") {
             eventChanged = true
-            $(`#Event__card__${id} > .Event__card__name`).text(newName)
+            $(`#Event__card__${id} > .Event__card__content > .Event__card__name`).text(newName)
         } else {
-            newName = $(`#Event__card__${id} > .Event__card__name`).text()
+            newName = $(`#Event__card__${id} > .Event__card__content > .Event__card__name`).text()
         }
         //do the same as above for date value
         if (newDate !== "") {
             eventChanged = true
-            $(`#Event__card__${id} > .Event__card__date`).text(`Date: ${newDate}`)
+            $(`#Event__card__${id} > .Event__card__content > .Event__card__date`).text(newDate)
         } else {
-            newDate = $(`#Event__card__${id} > .Event__card__date`).text()
+            newDate = $(`#Event__card__${id} > .Event__card__content > .Event__card__date`).text()
         }
         if (newLocation !== "") {
             eventChanged = true
-            $(`#Event__card__${id} > .Event__card__location`).text(`Location: ${newLocation}`)
+            $(`#Event__card__${id} > .Event__card__content > .Event__card__location`).text(newLocation)
         } else {
-            newLocation = $(`#Event__card__${id} > .Event__card__location`).text()
+            newLocation = $(`#Event__card__${id} > .Event__card__content > .Event__card__location`).text()
         }
 
         //finally check to see if the event was changed at all
@@ -65,6 +65,7 @@ const editEvent = (id) => {
             newEvent = createEventObject(currentUserID, newName, newDate, newLocation)
             APIManager.updateItem("Events", id, newEvent)
         }
+
         hideModal()
     })
 }

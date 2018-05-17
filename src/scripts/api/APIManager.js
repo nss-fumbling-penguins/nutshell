@@ -21,7 +21,7 @@ const APIManager = Object.create(null, {
         value: function(collection, userID){
             const friends = [];
             const friendItems = [];
-            return $.ajax("http://localhost:8088/relationships")
+            return $.ajax("http://localhost:8088/Relationships")
                 .then(relationships => {
                     relationships.filter(relationship => parseInt(relationship.userID) === userID)
                     .forEach(relationship => {
