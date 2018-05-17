@@ -26,8 +26,8 @@ const viewManager = Object.create({}, {
                     <li><input type="button" class="button-signup" value="Signup"></li>
                     </ul>
                     </nav>
-                    <article id="main-page">
-                    <p>Nutshell is a great way to keep track of your entire life.  Anything you can't track in Nutshell must not be that important.  Sign up today!</p>
+                    <article id="main-page" class="landing">
+                    <p id="welcome-message">Nutshell is a great way to keep track of your entire life.  Anything you can't track in Nutshell must not be that important.  Sign up today!</p>
                     <input type="button" class="button-signup" value="Signup">
                     </article>`
                 )

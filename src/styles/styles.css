@@ -305,3 +305,34 @@ nav input, nav button {
 .Friend__card:nth-child(odd) {
     background-color: rgba(128, 128, 128, 0.233);
 }
+
+/* User Form styles */
+
+#submit-button, 
+.button-signup {
+    display: block; 
+    height: 25px;
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1em;
+}
+
+#login-form, 
+#signup-form {
+    display: inline-block;
+    margin: auto;
+}
+
+.landing {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#welcome-message {
+    width: 450px;
+    text-align: center;
+    font-size: 2em;
+}
