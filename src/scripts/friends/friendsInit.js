@@ -5,10 +5,12 @@
 
 const showFriendsList = require("./showFriendsList")
 const createAddFriendForm = require("./addFriendForm")
+const activatePopup = require("./popupFriends")
 
 const initializeFriendsList = () => {
     showFriendsList()
     createAddFriendForm()
+    activatePopup()
 }
 
 module.exports = initializeFriendsList

@@ -13,7 +13,9 @@ const buildFriendCard = require("./createFriendElement")
 const showFriendsList = () => {
     const output = $("#main-page")
     const friendsList = $("<div id=\"friends\"><h3>Friends</h3><button id=\"Friends__btn__add\">Add Friend</button></div>")
-
+    const friendOutput = $("<div id=\"Friend__output\"></div>")
+    friendsList.append(friendOutput)
+    output.append(friendsList)
     //get friends
     //get database
     APIManager.getAllDatabase()
@@ -36,10 +38,10 @@ const showFriendsList = () => {
             friends.forEach(friend => {
                 friendCard = buildFriendCard(friend.id, friend.firstName, friend.lastName, friend.username)
                 //append card to parent list
-                friendsList.append(friendCard)
+                friendOutput.append(friendCard)
             })
             //append parent list to main page
-            output.append(friendsList)
+            
             activateFriendsListButtons()
         })
 
