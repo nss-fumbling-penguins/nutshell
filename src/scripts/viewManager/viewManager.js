@@ -57,7 +57,7 @@ const viewManager = Object.create({}, {
                     <li><span id="current-user">${user.firstName.charAt().toUpperCase()}</span></l>
                     </ul>
                     </nav>
-                    <article id="main-page"></article>`
+                    <article id="main-page" class="dashboard"></article>`
                 )
                 $("#button-logout").click(event => {
 					$("#main-page").empty()

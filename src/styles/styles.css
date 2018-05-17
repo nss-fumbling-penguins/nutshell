@@ -52,13 +52,23 @@ nav input, nav button {
     font-size: 1.1em;
 
 }
+/* main-page */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin-top: 10px;
+}
 
 /* chatBox css */
 
 #chat{
 	min-height: 400px;
 	max-height: 400px;
-	width: 40%;
+	width: 100%;
 	border: 2px solid black;
 }
 
@@ -124,8 +134,12 @@ nav input, nav button {
 
 /* Tasks styles */
 #Tasks {
-    width: 45%;
+    width: 100%;
     border: 1px solid black;
+    max-height: 400px;
+	min-height: 400px;
+	display: flex;
+	flex-direction: column;
 }
 
 #Tasks__header {
@@ -176,6 +190,37 @@ nav input, nav button {
     font-style: italic;
     background-color: cornsilk;
 }
+
+#News {
+    width: 100%;
+    border: 1px solid black;
+    max-height: 400px;
+	min-height: 400px;
+	display: flex;
+	flex-direction: column;
+}
+
+#News__header {
+    border: 1px solid black;
+    padding: .5em;
+    background: rgb(162,162,162);
+    background: linear-gradient(90deg, rgba(162,162,162,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+#Articles__output {
+    height: 25em;
+    overflow: scroll;
+}
+
+#News__header h3{
+    display: inline-block;
+}
+
+#News__header button {
+    margin-left: 2em;
+}
+
+
 
 
 /* modal styles */
