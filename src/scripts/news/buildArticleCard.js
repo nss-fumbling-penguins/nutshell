@@ -13,12 +13,12 @@ const buildArticleElement = (title, summary, url, id, userID) => {
         `
             <h4 class="Article__card__title">${title}</h4>
             <p class="Task__card__summary">Summary: ${summary}</p>
-            <p class="Article__card__URL">URL: ${summary}</p>
+            <p class="Article__card__URL">URL: ${url}</p>
         `
     )
     const UserManager = require("../registration/UserManager")
     const loggedInUser = UserManager.currentUser()
-    if (userID === loggedInUser) {
+    if (userID.toString() === loggedInUser.toString()) {
         articleElement.append(
             `<div id="Article__card__${id}__buttons">
                 <button id="Edit__Article__${id}">edit</button>
@@ -27,6 +27,12 @@ const buildArticleElement = (title, summary, url, id, userID) => {
         )
     } else {
         articleElement.addClass("friend-article")
+        const APIManager = require("../api/APIManager")
+        APIManager.getOneOfCollection("Users", userID.toString())
+        .then(user => {
+            articleElement.append(`<p>Added by User: ${user.firstName}`)
+        })
+        
     }
     output.append(articleElement)
     activateArticleCardButtons(id)

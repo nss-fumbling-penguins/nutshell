@@ -11,13 +11,13 @@ const APIManager = require("../api/APIManager")
 const activateArticleCardButtons = (id) => {
     //add event listeners to buttons
     //delete article
-    $(`#Delete__article__${id}`).click(() => {
-        deleteTask(id)
+    $(`#Delete__Article__${id}`).click(() => {
+        deleteArticle(id)
         $(`#Article__card__${id}`).remove()
     })
 
     //edit article
-    $(`#Edit__article__${id}`).click(() => {
+    $(`#Edit__Article__${id}`).click(() => {
         editArticle(id)
     })
 

@@ -1,6 +1,6 @@
 /*
 Create News Object
-Author: Josh Barton
+Author: (most Riley Mathews) Josh Barton (adapting Riley's code)
 */
 
 const createNewsObject = (userID, title, summary, url) => {

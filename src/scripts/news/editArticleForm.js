@@ -48,14 +48,14 @@ const editArticle = (id) => {
         //do the same as above for summary value
         if (newSummary !== "") {
             articleChanged = true
-            $(`#Article__card__${id} > .Article__card__summary`).text(`Due: ${newSummary}`)
+            $(`#Article__card__${id} > .Article__card__summary`).text(`Summary: ${newSummary}`)
         } else {
             newSummary = $(`#Article__card__${id} > .Article__card__summary`).text()
         }
         //do the same as above for URL value
         if (newURL !== "") {
             articleChanged = true
-            $(`#Article__card__${id} > .Article__card__URL`).text(`Due: ${newURL}`)
+            $(`#Article__card__${id} > .Article__card__URL`).text(`URL: ${newURL}`)
         } else {
             newURL = $(`#Article__card__${id} > .Article__card__URL`).text()
         }
