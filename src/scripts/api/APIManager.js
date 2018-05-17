@@ -23,6 +23,12 @@ const APIManager = Object.create(null, {
             return $.ajax(`http://localhost:8088/${collection}/${id}`)
         }
     },
+    //method to get chat item by timestamp
+    getByTimestamp: {
+        value: function (timestamp) {
+            return $.ajax(`http://localhost:8088/messages?timeStamp=${timestamp}`)
+        }
+    },
     //post methods
     //method to create items of the collection type passed to it
     createItem: {
