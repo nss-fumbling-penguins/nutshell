@@ -8,6 +8,7 @@ const APIManager = require("../api/APIManager")
 const userForms = require("../registration/UserForms")
 const friendsList = require("../friends/friendsInit")
 const buildChat = require("../chat/buildChat")
+const initializeNews = require("../news/newsInit")
 const UserManager = require("../registration/UserManager")
 
 
@@ -65,7 +66,10 @@ const viewManager = Object.create({}, {
 				// function to build chat section
 				buildChat.buildChat()
                 //function to build events
+                
                 // function to build news
+                initializeNews()
+                //function to list friends
                 friendsList()
             })
 
