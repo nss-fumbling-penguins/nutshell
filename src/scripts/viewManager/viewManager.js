@@ -91,7 +91,7 @@ const viewManager = Object.create({}, {
                 <li><input type="button" class="button-signup" value="Signup"></li>
                 </ul>
                 </nav>
-                <article id="main-page">
+                <article id="main-page" class="logged-out">
                 <p>You are now logged out.</p>
                 <input type="button" class="button-login" value="Login">
                 </article>`

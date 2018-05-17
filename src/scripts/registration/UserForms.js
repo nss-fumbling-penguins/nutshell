@@ -15,16 +15,28 @@ const userForms = Object.create({}, {
             $("#main-page").append(
                 `<section id="signup-form">
                     <h2>Create a new Account:</h2>
+                    <div>
+                    <div>
                     <label>First Name:</label>
                     <input type="text" id="first-name">
+                    </div>
+                    <div>
                     <label>Last Name:</label>
                     <input type="text" id="last-name">
+                    </div>
+                    <div>
                     <label>Email:</label>
                     <input type="text" id="email">
+                    </div>
+                    <div>
                     <label>Choose a user name:</label>
                     <input type="text" id="username">
+                    </div>
+                    <div>
                     <label>Choose a Password:</label>
                     <input type="password" id="password">
+                    </div>
+                    </div>
                     <input type="button" id="submit-button" value="Sign Up!">
                 </section>`
             )
@@ -51,10 +63,16 @@ const userForms = Object.create({}, {
             $("#main-page").append(
                 `<section id="login-form">
                     <h2>Sign in:</h2>
+                    <div>
+                    <div>
                     <label>Username:</label>
                     <input type="text" id="username">
+                    </div>
+                    <div>
                     <label>Password:</label>
                     <input type="password" id="password">
+                    </div>
+                    </div>
                     <input type="button" id="submit-button" value="Sign In">
                 </section>`
             )

@@ -321,11 +321,18 @@ nav input, nav button {
 
 #login-form, 
 #signup-form {
-    display: inline-block;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 2px black;
+    height: 50%;
+    width: 50%;
+    border-radius: 5px;
 }
 
-.landing {
+.landing, 
+.logged-out {
     height: 600px;
     display: flex;
     justify-content: center;
@@ -335,4 +342,9 @@ nav input, nav button {
     width: 450px;
     text-align: center;
     font-size: 2em;
+}
+
+#login-form div, 
+#signup-form div {
+    margin-bottom: 3px;
 }
