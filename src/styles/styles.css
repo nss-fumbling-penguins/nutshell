@@ -18,16 +18,18 @@ nav ul {
     flex-direction: row;
     width: inherit;
     align-items: center;
+    padding: 0;
 }
 
 nav ul li {
     list-style-type: none;
     text-align: center;
     margin-right: 5px;
+    padding: 0;
 } 
 
 #brand {
-    margin-left: 10px;
+    margin: 0 5px 0 5px;
     padding: 5px;
     background-color: crimson;
     border-radius: 5px 0 5px 0;
@@ -37,9 +39,9 @@ nav ul li {
     display: block;
     background-color: seagreen;
     border-radius: 50%;
-    padding: 9px 5px 5px 5px;
-    width: 24px;
-    height: 20px;
+    padding: 5px 5px 9px 5px;
+    width: 13px;
+    height: 11px;
 }
 
 nav input, nav button {
