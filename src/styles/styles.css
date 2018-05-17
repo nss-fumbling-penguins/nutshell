@@ -57,26 +57,20 @@ nav input, nav button {
 /* main-page */
 
 .dashboard {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    margin-top: 10px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
 }
 
 /* chatBox css */
 
 #chat{
-	min-height: 400px;
-	max-height: 400px;
-	width: 100%;
+    
 	border: 2px solid black;
 }
 
 #chatBox{
-	max-height: 380px;
-	min-height: 380px;
+    max-height: 350px;
 	overflow-y: scroll;
 	display: flex;
 	flex-direction: column;
@@ -136,10 +130,7 @@ nav input, nav button {
 
 /* Tasks styles */
 #Tasks {
-    width: 100%;
     border: 1px solid black;
-    max-height: 400px;
-	min-height: 400px;
 	display: flex;
 	flex-direction: column;
 }
@@ -152,7 +143,6 @@ nav input, nav button {
 }
 
 #Tasks__output {
-    height: 25em;
     overflow: scroll;
 }
 
@@ -194,10 +184,7 @@ nav input, nav button {
 }
 
 #News {
-    width: 100%;
     border: 1px solid black;
-    max-height: 400px;
-	min-height: 400px;
 	display: flex;
 	flex-direction: column;
 }
@@ -210,7 +197,6 @@ nav input, nav button {
 }
 
 #Articles__output {
-    height: 25em;
     overflow: scroll;
 }
 
@@ -277,13 +263,6 @@ event styling */
     display: inline;
 }
 /* Friends list styles */
-[x-arrow] {
-    position: absolute;
-    border-bottom: 14px solid black;
-    border-left: 14px solid transparent;
-    border-right: 14px solid transparent;
-    top: -14px;
-}
 
 #friends {
     width: 10em;

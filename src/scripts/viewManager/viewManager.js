@@ -19,17 +19,11 @@ const viewManager = Object.create({}, {
             if (UserManager.currentUser() === null) {
                 $("#wrapper").append(
                     `<nav>
-<<<<<<< HEAD
-                    <h1>Nutshell</h1>
-                    <input type="button" class="button-login" value="Login">
-                    <input type="button" class="button-signup" value="Signup">
-=======
                     <h1 id="brand">Nutshell</h1>
                     <ul>
                     <li><input type="button" class="button-login" value="Login"></li>
                     <li><input type="button" class="button-signup" value="Signup"></li>
                     </ul>
->>>>>>> master
                     </nav>
                     <article id="main-page" class="landing">
                     <p id="welcome-message">Nutshell is a great way to keep track of your entire life.  Anything you can't track in Nutshell must not be that important.  Sign up today!</p>
@@ -93,17 +87,11 @@ const viewManager = Object.create({}, {
             $("#wrapper").empty()
             $("#wrapper").append(
                 `<nav>
-<<<<<<< HEAD
-                <h1>Nutshell</h1>
-                <input type="button" class="button-login" value="Login">
-                <input type="button" class="button-signup" value="Signup">
-=======
                 <h1 id="brand">Nutshell</h1>
                 <ul>
                 <li><input type="button" class="button-login" value="Login"></li>
                 <li><input type="button" class="button-signup" value="Signup"></li>
                 </ul>
->>>>>>> master
                 </nav>
                 <article id="main-page" class="logged-out">
                 <p>You are now logged out.</p>
