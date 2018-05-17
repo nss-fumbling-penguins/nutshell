@@ -1,3 +1,57 @@
+* {
+    font-family: Arial, sans-serif;
+}
+
+/* nav */
+nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-direction: row;
+    height: auto;
+    background-color: navy;
+    color: white;
+    align-items: center;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    width: inherit;
+    align-items: center;
+}
+
+nav ul li {
+    list-style-type: none;
+    text-align: center;
+    margin-right: 5px;
+} 
+
+#brand {
+    margin-left: 10px;
+    padding: 5px;
+    background-color: crimson;
+    border-radius: 5px 0 5px 0;
+}
+
+#current-user {
+    display: block;
+    background-color: seagreen;
+    border-radius: 50%;
+    padding: 9px 5px 5px 5px;
+    width: 24px;
+    height: 20px;
+}
+
+nav input, nav button {
+    display: block;
+    height: 25px;
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1em;
+
+}
 
 /* chatBox css */
 
@@ -115,6 +169,12 @@
 .Task__card h4, 
 .Task__card div {
     display: inline-block;
+}
+
+/*News Styles*/
+.friend-article {
+    font-style: italic;
+    background-color: cornsilk;
 }
 
 
