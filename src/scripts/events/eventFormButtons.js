@@ -8,6 +8,7 @@ const createEventObject = require("./createEventObject")
 const buildEventCard = require("./buildEventCard")
 const UserManager = require("../registration/UserManager")
 const APIManager = require("../api/APIManager")
+const showEventView = require("./eventView")
 
 //functions to hold common functionality across buttons
 //show the Event modal
@@ -39,22 +40,14 @@ const activateEventFormButtons = () => {
 
     //handles click on Event submit button
     $("#Events__button__submit").click(() => {
-
         //get current user
         const userID = UserManager.currentUser()
         //create Event object
         const event = createEventObject(userID, $("#Events__input__name").val(), $("#Events__input__date").val(), $("#Events__input__location").val())
         //call function to send Event to api
         APIManager.createItem("Events", event)
-            .then(response => {
-                const name = response.name
-                const id = response.id
-                const date = response.date
-                const location = response.location
-                const user = response.userID
-                //take the response and append a new card to the dom based on the new Event item
-                buildEventCard(name, id, date, location, user)
-            })
+        $("#Events").remove();
+        showEventView()
         clearFormFields()
         hideModal()
     })

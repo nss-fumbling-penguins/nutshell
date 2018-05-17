@@ -16,12 +16,19 @@ const showEventView = () => {
         `
     )
     const userID = userManager.currentUser();
+
     APIManager.getFriendCollection("Events", userID)
         .then(friendItems => {
-            friendItems.forEach(event => {
+            var first_iteration = true;
+            friendItems.sort((a, b) => {
+                let x = Date.parse(b.date);
+                let y = Date.parse(a.date);
+                return x - y;
+            })
+            .forEach(event => {
                     buildEventCard(event.name, event.id, event.date, event.location, event.userID)
+            })
         })
-    })
     output.append(eventView)
 }
 module.exports = showEventView

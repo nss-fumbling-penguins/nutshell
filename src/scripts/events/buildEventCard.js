@@ -30,7 +30,7 @@ const buildEventCard = (name, id, date, location, user) => {
             `
             )
         }else{
-            eventElement.append(`<p>Added by ${eventCreator.firstName}</p>`)
+            eventElement.append(`<div>Added by ${eventCreator.firstName}</div>`)
         }
     }).then(() =>{
         output.append(eventElement)

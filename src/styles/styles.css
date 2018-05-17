@@ -169,8 +169,6 @@ event styling */
 .Event__card__edit * {
     display: inline;
 }
-
-
 /* Friends list styles */
 #friends {
     width: 10em;
@@ -193,5 +191,4 @@ event styling */
 
 .Friend__card:nth-child(odd) {
     background-color: rgba(128, 128, 128, 0.233);
->>>>>>> master
 }

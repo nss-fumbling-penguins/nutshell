@@ -16,8 +16,6 @@ const viewManager = Object.create({}, {
     buildLandingPage: {
         value: () => {
             $("#wrapper").empty()
-
-            console.log(UserManager.currentUser())
             if (UserManager.currentUser() === null) {
                 $("#wrapper").append(
                     `<nav>
@@ -67,13 +65,14 @@ const viewManager = Object.create({}, {
                 initializeTasks()
                 //function to build events section
                 const initializeEvents = require("../events/initEvents")
-                initializeEvents()
+
 				// function to build chat section
 				buildChat.buildChat()
                 //function to build events
 
                 // function to build news
                 initializeNews()
+                initializeEvents()
                 //function to list friends
                 friendsList()
             })
