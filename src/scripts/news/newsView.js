@@ -28,7 +28,7 @@ const showNewsView = () => {
 
     APIManager.getFriendCollection("Articles", userID)
         .then(response => {
-            response.forEach(article => {
+            response.sort((a, b) => {return b.timeStamp - a.timeStamp}).forEach(article => {
                     buildArticleCard(article.title, article.summary, article.url, article.id, article.userID)
                 })
         })

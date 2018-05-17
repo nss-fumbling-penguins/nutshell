@@ -19,9 +19,17 @@ const viewManager = Object.create({}, {
             if (UserManager.currentUser() === null) {
                 $("#wrapper").append(
                     `<nav>
+<<<<<<< HEAD
                     <h1>Nutshell</h1>
                     <input type="button" class="button-login" value="Login">
                     <input type="button" class="button-signup" value="Signup">
+=======
+                    <h1 id="brand">Nutshell</h1>
+                    <ul>
+                    <li><input type="button" class="button-login" value="Login"></li>
+                    <li><input type="button" class="button-signup" value="Signup"></li>
+                    </ul>
+>>>>>>> master
                     </nav>
                     <article id="main-page">
                     <p>Nutshell is a great way to keep track of your entire life.  Anything you can't track in Nutshell must not be that important.  Sign up today!</p>
@@ -47,12 +55,14 @@ const viewManager = Object.create({}, {
 				$("#wrapper").empty()
                 $("#wrapper").append(
 					`<nav>
-                    <h1>Nutshell</h1>
-                    <input type="button" id="button-logout" value="Logout">
-                    <span id="current-user">${user.firstName}</span>
-                    <button id="Show__Friends__List">Show Friends List</button>
+                    <h1 id="brand">Nutshell</h1>
+                    <ul>
+                    <li><input type="button" id="button-logout" value="Logout"></li>
+                    <li><button id="Show__Friends__List">Show Friends List</button></li>
+                    <li><span id="current-user">${user.firstName.charAt().toUpperCase()}</span></l>
+                    </ul>
                     </nav>
-                    <article id="main-page"></article>`
+                    <article id="main-page" class="dashboard"></article>`
                 )
                 $("#button-logout").click(event => {
 					$("#main-page").empty()
@@ -84,9 +94,17 @@ const viewManager = Object.create({}, {
             $("#wrapper").empty()
             $("#wrapper").append(
                 `<nav>
+<<<<<<< HEAD
                 <h1>Nutshell</h1>
                 <input type="button" class="button-login" value="Login">
                 <input type="button" class="button-signup" value="Signup">
+=======
+                <h1 id="brand">Nutshell</h1>
+                <ul>
+                <li><input type="button" class="button-login" value="Login"></li>
+                <li><input type="button" class="button-signup" value="Signup"></li>
+                </ul>
+>>>>>>> master
                 </nav>
                 <article id="main-page">
                 <p>You are now logged out.</p>
