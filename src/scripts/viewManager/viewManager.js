@@ -19,11 +19,17 @@ const viewManager = Object.create({}, {
             if (UserManager.currentUser() === null) {
                 $("#wrapper").append(
                     `<nav>
+<<<<<<< HEAD
+                    <h1>Nutshell</h1>
+                    <input type="button" class="button-login" value="Login">
+                    <input type="button" class="button-signup" value="Signup">
+=======
                     <h1 id="brand">Nutshell</h1>
                     <ul>
                     <li><input type="button" class="button-login" value="Login"></li>
                     <li><input type="button" class="button-signup" value="Signup"></li>
                     </ul>
+>>>>>>> master
                     </nav>
                     <article id="main-page">
                     <p>Nutshell is a great way to keep track of your entire life.  Anything you can't track in Nutshell must not be that important.  Sign up today!</p>
@@ -42,7 +48,7 @@ const viewManager = Object.create({}, {
                 viewManager.buildDashboard(UserManager.currentUser())
             }
         }
-    }, 
+    },
     buildDashboard: {
 		value: (id) => {
 			APIManager.getOneOfCollection("Users", id).then(user => {
@@ -65,29 +71,39 @@ const viewManager = Object.create({}, {
                 })
                 // function to build tasks section
 				const initializeTasks = require("../tasks/TasksInit")
-				initializeTasks()
+                initializeTasks()
+                //function to build events section
+                const initializeEvents = require("../events/initEvents")
+
 				// function to build chat section
 				buildChat.buildChat()
                 //function to build events
-                
+
                 // function to build news
                 initializeNews()
+                initializeEvents()
                 //function to list friends
                 friendsList()
             })
 
         }
-    }, 
+    },
     buildSignedOut: {
         value: () => {
             $("#wrapper").empty()
             $("#wrapper").append(
                 `<nav>
+<<<<<<< HEAD
+                <h1>Nutshell</h1>
+                <input type="button" class="button-login" value="Login">
+                <input type="button" class="button-signup" value="Signup">
+=======
                 <h1 id="brand">Nutshell</h1>
                 <ul>
                 <li><input type="button" class="button-login" value="Login"></li>
                 <li><input type="button" class="button-signup" value="Signup"></li>
                 </ul>
+>>>>>>> master
                 </nav>
                 <article id="main-page">
                 <p>You are now logged out.</p>
@@ -98,7 +114,7 @@ const viewManager = Object.create({}, {
                 $("#main-page").empty()
                 userForms.buildLoginForm()
             })
-            
+
             $(".button-signup").click(event => {
                 $("#main-page").empty()
                 userForms.buildSignUpForm()
