@@ -10,6 +10,7 @@ const $ = require("jquery")
 const UserManager = require("../registration/UserManager")
 const api = require("../api/APIManager")
 const chatStorage = require("./chatStorage")
+const friend = require("../friends/showAddFriendModal")
 
 const printChat = Object.create(null, {
 	docRef:{
@@ -41,10 +42,8 @@ const printChat = Object.create(null, {
 				$("#chatBox").append(chat)
 				$(`#${msg.timeStamp}`).on("dblclick", (e) =>{
 					//todo add check to see if there is an edit window open
-					console.log(e)
 					let edit = "<input type=\"text\" class=\"editMsg\">"
 					$(e.currentTarget).append(edit)
-					console.log( $(e.currentTarget).find(".chatText").text())
 					$(e.currentTarget).find(".editMsg").val(`${$(e.currentTarget).find(".chatText").text()}`)
 					$(e.currentTarget).find(".editMsg").on("keyup", function(event) {
 						if (event.keyCode === 13 && $(e.currentTarget).find(".editMsg").val() !== ""){
@@ -55,13 +54,15 @@ const printChat = Object.create(null, {
 								msg: $(e.currentTarget).find(".editMsg").val()
 							}
 							chatStorage.save(data)
-							api.getByTimeStamp(e.currentTarget.id).then(update => {
-								update.message = data.msg
-								api.updateItem("messages", data.id, data)
+							api.getByTimestamp(e.currentTarget.id).then(update => {
+								update[0].message = data.msg
+								console.log(update[0])
+								api.updateItem("messages", update[0].id, update[0])
 							})
 							$(e.currentTarget).find(".editMsg").remove()
 						}
 					})
+				
 				})
 			}else{
 				//set class to chatLeft
@@ -72,7 +73,7 @@ const printChat = Object.create(null, {
 					</div>`
 					$("#chatBox").append(chat)
 					$(`#${msg.timeStamp} .chatUser`).on("click", (e) =>{
-						console.log(printChat.users[((msg.userID) -1)])
+						friend(printChat.users[((msg.userID) -1)])
 						//show add friend modal
 					})
 			}
@@ -122,14 +123,31 @@ const printChat = Object.create(null, {
 				$("#chatBox").append(msgs)
 				editable.forEach(id => {
 					$(`#${id}`).on("dblclick", (e) =>{
-						console.log(e)
-						//create edit form here
+						let edit = "<input type=\"text\" class=\"editMsg\">"
+						$(e.currentTarget).append(edit)
+						$(e.currentTarget).find(".editMsg").val(`${$(e.currentTarget).find(".chatText").text()}`)
+						$(e.currentTarget).find(".editMsg").on("keyup", function(event) {
+							if (event.keyCode === 13 && $(e.currentTarget).find(".editMsg").val() !== ""){
+								$(e.currentTarget).find(".chatText").text($(e.currentTarget).find(".editMsg").val())
+								let data = {
+									edit: true,
+									target: e.currentTarget.id,
+									msg: $(e.currentTarget).find(".editMsg").val()
+								}
+								chatStorage.save(data)
+								api.getByTimestamp(e.currentTarget.id).then(update => {
+									update[0].message = data.msg
+									console.log(update[0])
+									api.updateItem("messages", update[0].id, update[0])
+								})
+								$(e.currentTarget).find(".editMsg").remove()
+							}
+						})
 					})
 				})
 				addable.forEach(data => {
 					$(`#${data.id} .chatUser`).on("click", (e) =>{
-						console.log(data.user)
-						//show add friend modal
+						friend(data.user)
 					})
 				})
 				$("#chatBox").animate({ scrollTop: $("#chatBox").prop("scrollHeight")}, 1000)
