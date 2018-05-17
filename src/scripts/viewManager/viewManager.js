@@ -16,7 +16,6 @@ const viewManager = Object.create({}, {
     buildLandingPage: {
         value: () => {
             $("#wrapper").empty()
-            console.log(UserManager.currentUser())
             if (UserManager.currentUser() === null) {
                 $("#wrapper").append(
                     `<nav>
@@ -53,7 +52,6 @@ const viewManager = Object.create({}, {
                     <h1 id="brand">Nutshell</h1>
                     <ul>
                     <li><input type="button" id="button-logout" value="Logout"></li>
-                    <li><button id="Show__Friends__List">Show Friends List</button></li>
                     <li><span id="current-user">${user.firstName.charAt().toUpperCase()}</span></l>
                     </ul>
                     </nav>
