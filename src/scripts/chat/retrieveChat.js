@@ -22,7 +22,7 @@ const retrieveChat = Object.create(null, {
 			data = chatStorage.load()
 			if("edit" in data && data.edit === true){
 				//a message was edited
-				
+				out.editMessage(data)
 			}else{
 				out.print(data)
 			}

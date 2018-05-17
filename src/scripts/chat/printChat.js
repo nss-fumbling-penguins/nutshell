@@ -9,6 +9,7 @@
 const $ = require("jquery")
 const UserManager = require("../registration/UserManager")
 const api = require("../api/APIManager")
+const chatStorage = require("./chatStorage")
 
 const printChat = Object.create(null, {
 	docRef:{
@@ -17,6 +18,12 @@ const printChat = Object.create(null, {
 	users:{
 		writable:true,
 		value:[]
+	},
+	editMessage:{
+		value: function(data){
+			
+			$(`#${data.target}`).find(".chatText").text(data.msg)
+		}
 	},
 	print:{
 		value:function (msg) {
@@ -41,7 +48,17 @@ const printChat = Object.create(null, {
 					$(e.currentTarget).find(".editMsg").val(`${$(e.currentTarget).find(".chatText").text()}`)
 					$(e.currentTarget).find(".editMsg").on("keyup", function(event) {
 						if (event.keyCode === 13 && $(e.currentTarget).find(".editMsg").val() !== ""){
-							//update this message value and remove the input from the dom
+							$(e.currentTarget).find(".chatText").text($(e.currentTarget).find(".editMsg").val())
+							let data = {
+								edit: true,
+								target: e.currentTarget.id,
+								msg: $(e.currentTarget).find(".editMsg").val()
+							}
+							chatStorage.save(data)
+							api.getByTimeStamp(e.currentTarget.id).then(update => {
+								update.message = data.msg
+								api.updateItem("messages", data.id, data)
+							})
 							$(e.currentTarget).find(".editMsg").remove()
 						}
 					})
