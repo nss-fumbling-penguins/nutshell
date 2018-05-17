@@ -30,10 +30,54 @@
 
 
 /* Tasks styles */
+#Tasks {
+    width: 45%;
+    border: 1px solid black;
+}
+
+#Tasks__header {
+    border: 1px solid black;
+    padding: .5em;
+    background: rgb(162,162,162);
+    background: linear-gradient(90deg, rgba(162,162,162,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+#Tasks__output {
+    height: 25em;
+    overflow: scroll;
+}
+
+#Tasks__output .Task__card:nth-child(even) {
+    background-color: rgba(128, 128, 128, 0.233);
+}
+
+#Tasks__header h3{
+    display: inline-block;
+}
+
+#Tasks__header button {
+    margin-left: 2em;
+}
 
 .complete {
     color: green;
 }
+
+.Task__card {
+    border: 1px solid black;
+    padding: .5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Task__card p, 
+.Task__card button, 
+.Task__card h4, 
+.Task__card div {
+    display: inline-block;
+}
+
 
 /* modal styles */
 
