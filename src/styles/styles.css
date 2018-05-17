@@ -12,6 +12,8 @@
 	max-height: 380px;
 	min-height: 380px;
 	overflow-y: scroll;
+	display: flex;
+	flex-direction: column;
 }
 
 #chatInput{
@@ -19,6 +21,43 @@
 	border-top:2px solid black;
 }
 
+.chatMsg{
+	width: 90%;
+	margin: 10px auto;
+	padding: 3px 5px 3px 0;
+	color: #4A5043;
+}
+
+.chatTime{
+	padding: 0;
+	margin: 0 0 0 5px;
+	user-select: none;
+}
+
+.chatUser{
+	margin-left: 5px;
+	margin-top: 5px;
+	border:2px solid #8AA1B1;
+	border-radius: 4%;
+	background-color: #8AA1B1;
+	user-select: none;
+}
+
+.chatText{
+	margin-left: 5px;
+	margin-top:5px;
+	user-select: none;
+}
+
+.chatRight{
+	background-color:#7CDEDC;
+	border-radius: 2%;
+}
+
+.chatLeft{
+	background-color: #B9D8C2;
+	border-radius: 2%;
+}
 
 
 
