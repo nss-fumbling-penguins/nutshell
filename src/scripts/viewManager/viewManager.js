@@ -16,7 +16,6 @@ const viewManager = Object.create({}, {
     buildLandingPage: {
         value: () => {
             $("#wrapper").empty()
-            console.log(UserManager.currentUser())
             if (UserManager.currentUser() === null) {
                 $("#wrapper").append(
                     `<nav>
