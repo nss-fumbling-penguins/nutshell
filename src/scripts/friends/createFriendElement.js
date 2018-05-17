@@ -8,7 +8,7 @@ const removeFriend = require("./removeFriend")
 
 const buildFriendCard = (id, firstName, lastName, userName) => {
     //create card parent div
-    const friendCard = $(`<div id="Friend__${id}"></div>`)
+    const friendCard = $(`<div id="Friend__${id}" class="Friend__card"></div>`)
     //append static content
     friendCard.append(
         `

@@ -50,6 +50,7 @@ const viewManager = Object.create({}, {
                     <h1>Nutshell</h1>
                     <input type="button" id="button-logout" value="Logout">
                     <span id="current-user">${user.firstName}</span>
+                    <button id="Show__Friends__List">Show Friends List</button>
                     </nav>
                     <article id="main-page"></article>`
                 )
