@@ -298,7 +298,8 @@ nav input, nav button {
 /* User Form styles */
 
 #submit-button, 
-.button-signup {
+.button-signup, 
+.button-login {
     display: block; 
     height: 25px;
     background-color: orange;
