@@ -254,8 +254,6 @@ nav input, nav button {
 #Events {
 	width:49%;
     order: 5;
-	height: 250px;
-	border: 1px solid black;
 }
 
 .Event__card__content * {
