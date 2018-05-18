@@ -12,16 +12,16 @@ const showNewsView = () => {
     //get reference to main div
     const output = $("#main-page")
     //create parent task div
-    const newsView = $("<div id=\"News\"></div>")
+    const newsView = $("<div id=\"News\" class='component'></div>")
 
     //append main elements
     newsView.append(
         `
-            <div id="News__header">
-                <h3>Articles</h3>
-                <button id="Articles__button__createArticle">Add Article</button>
+            <div id="News__header" class="component__header">
+                <h3 class="component__header__title">Articles</h3>
+                <button id="Articles__button__createArticle" class="component__header__button">Add Article</button>
             </div>
-            <div id="Articles__output"></div>
+            <div id="Articles__output" class="component__output"></div>
         `
     )
     const userID = UserManager.currentUser()
