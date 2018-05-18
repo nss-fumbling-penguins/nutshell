@@ -13,10 +13,7 @@ const chatStorage = require("./chatStorage")
 
 
 const retrieveChat = Object.create(null, {
-	iter:{
-		writable: true,
-		value: 1
-	},
+	//handles printing an externally created message
 	handle:{
 		value: function(){
 			data = chatStorage.load()
@@ -24,15 +21,17 @@ const retrieveChat = Object.create(null, {
 				//a message was edited
 				out.editMessage(data)
 			}else{
-				out.print(data)
+				out.check(data)
 			}
 		}
 	},
+	//handles printing a locally created message
 	onCreate:{
 		value: function(msg){
 			out.print(msg)
 		}
 	},
+	//gets all messages, prints them, and sets up storage listener
 	init:{
 		value: function(){
 			

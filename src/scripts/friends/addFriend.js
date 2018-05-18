@@ -7,10 +7,8 @@ const $ = require("jquery")
 const APIManager = require("../api/APIManager")
 const UserManager = require("../registration/UserManager")
 const buildFriendCard = require("./createFriendElement")
-const friendPopup = require("./popupFriends")
 
 const addFriend = (usernameToAdd) => {
-    popup = friendPopup()
     APIManager.getAllOfCollection("Users")
         .then(response => {
             const friendToAdd = response.find(user => user.username === usernameToAdd)
@@ -29,7 +27,6 @@ const addFriend = (usernameToAdd) => {
                 }
                 APIManager.createItem("Relationships", relationship)
             }
-            popup.scheduleUpdate()
         })
 }
 

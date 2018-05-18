@@ -24,8 +24,8 @@ const viewManager = Object.create({}, {
                     <li><input type="button" class="button-signup" value="Signup"></li>
                     </ul>
                     </nav>
-                    <article id="main-page">
-                    <p>Nutshell is a great way to keep track of your entire life.  Anything you can't track in Nutshell must not be that important.  Sign up today!</p>
+                    <article id="main-page" class="landing">
+                    <p id="welcome-message">Nutshell is a great way to keep track of your entire life.  Anything you can't track in Nutshell must not be that important.  Sign up today!</p>
                     <input type="button" class="button-signup" value="Signup">
                     </article>`
                 )
@@ -51,7 +51,6 @@ const viewManager = Object.create({}, {
                     <h1 id="brand">Nutshell</h1>
                     <ul>
                     <li><input type="button" id="button-logout" value="Logout"></li>
-                    <li><button id="Show__Friends__List">Show Friends List</button></li>
                     <li><span id="current-user">${user.firstName.charAt().toUpperCase()}</span></l>
                     </ul>
                     </nav>
@@ -63,21 +62,15 @@ const viewManager = Object.create({}, {
                     userManager.logOutUser()
                     viewManager.buildSignedOut()
                 })
-                // function to build tasks section
 				const initializeTasks = require("../tasks/TasksInit")
                 initializeTasks()
-                //function to build events section
-                const initializeEvents = require("../events/initEvents")
-
-				// function to build chat section
-				buildChat.buildChat()
-                //function to build events
-
-                // function to build news
-                initializeNews()
-                initializeEvents()
-                //function to list friends
                 friendsList()
+                buildChat.buildChat()
+                const initializeEvents = require("../events/initEvents")
+                initializeEvents()
+                initializeNews()
+		
+                
             })
         }
     },
@@ -92,7 +85,7 @@ const viewManager = Object.create({}, {
                 <li><input type="button" class="button-signup" value="Signup"></li>
                 </ul>
                 </nav>
-                <article id="main-page">
+                <article id="main-page" class="logged-out">
                 <p>You are now logged out.</p>
                 <input type="button" class="button-login" value="Login">
                 </article>`
