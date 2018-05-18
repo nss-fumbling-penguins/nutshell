@@ -5,14 +5,14 @@ const buildEventCard = require("./buildEventCard")
 
 const showEventView = () => {
     const output = $("#main-page")
-    const eventView = $("<div id=\"Events\"></div>")
+    const eventView = $("<div id=\"Events\" class='component'></div>")
     eventView.append(
         `
-            <div id="Events__header">
-                <h3>Event List</h3>
-                <button id="Events__button__createEvent">Add Event</button>
+            <div id="Events__header" class="component__header">
+                <h3 class="component__header__title">Event List</h3>
+                <button id="Events__button__createEvent" class="component__header__button">Add Event</button>
             </div>
-            <div id="Events__output"></div>
+            <div id="Events__output" class="component__output"></div>
         `
     )
     const userID = userManager.currentUser();
