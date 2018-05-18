@@ -51,7 +51,7 @@ const printChat = Object.create(null, {
 			if(msg.userID === user){
 				//create html component with message detail populated and add to DOM
 				chat = `<div class="chatMsg chatRight" id="${msg.timeStamp}">
-					<span class="chatUser">${printChat.users[((msg.userID) -1)]}:</span>
+					<span class="chatUser">${printChat.users[((msg.userID) -1)]}</span>
 					<span class="chatText">${msg.message}</span>
 					<p class="chatTime">${time}</p>
 					</div>`
@@ -90,7 +90,7 @@ const printChat = Object.create(null, {
 			}else{
 				//if message isn't from logged in user create message and add to DOM
 				chat = `<div class="chatMsg chatLeft" id="${msg.timeStamp}">
-					<span class="chatUser">${printChat.users[((msg.userID) -1)]}:</span>
+					<span class="chatUser">${printChat.users[((msg.userID) -1)]}</span>
 					<span class="chatText">${msg.message}</span>
 					<p class="chatTime">${time}</p>
 					</div>`
@@ -140,7 +140,7 @@ const printChat = Object.create(null, {
 						if(parseInt(msg.userID) === user){
 							//set class to chatRight
 							chat = `<div class="chatMsg chatRight" id="${msg.timeStamp}">
-								<span class="chatUser">${printChat.users[((msg.userID) -1)]}:</span>
+								<span class="chatUser">${printChat.users[((msg.userID) -1)]}</span>
 								<span class="chatText">${msg.message}</span>
 								<p class="chatTime">${time}</p>
 								</div>`
@@ -149,7 +149,7 @@ const printChat = Object.create(null, {
 						}else{
 							//set class to chatLeft
 							chat = `<div class="chatMsg chatLeft" id="${msg.timeStamp}">
-								<span class="chatUser">${printChat.users[((msg.userID) -1)]}:</span>
+								<span class="chatUser">${printChat.users[((msg.userID) -1)]}</span>
 								<span class="chatText">${msg.message}</span>
 								<p class="chatTime">${time}</p>
 								</div>`
