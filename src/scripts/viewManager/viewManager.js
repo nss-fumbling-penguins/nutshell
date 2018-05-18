@@ -69,8 +69,8 @@ const viewManager = Object.create({}, {
                 const initializeEvents = require("../events/initEvents")
                 initializeEvents()
                 initializeNews()
-		
-                
+
+
             })
         }
     },

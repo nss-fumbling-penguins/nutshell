@@ -9,6 +9,7 @@ const buildEventCard = require("./buildEventCard")
 const UserManager = require("../registration/UserManager")
 const APIManager = require("../api/APIManager")
 const showEventView = require("./eventView")
+const loadEvents = require("./loadEvents")
 
 //functions to hold common functionality across buttons
 //show the Event modal
@@ -30,11 +31,6 @@ const clearFormFields = () => {
 
 //main function of module, activate event handlers for buttons
 const activateEventFormButtons = () => {
-    //handles click on the create new Event button
-    $("#Events__button__createEvent").click(() => {
-        showModal()
-    })
-
     //handles click on the modal x button
     $("#Event__modal__close").click(hideModal)
 
@@ -46,12 +42,11 @@ const activateEventFormButtons = () => {
         const event = createEventObject(userID, $("#Events__input__name").val(), $("#Events__input__date").val(), $("#Events__input__location").val())
         //call function to send Event to api
         APIManager.createItem("Events", event)
-        $("#Events").remove();
-        showEventView()
         clearFormFields()
         hideModal()
+         $("#Events__output").empty();
+         loadEvents();
     })
-
     //handles click on the cancel Event creation button
     $("#Event__modal__close").click(() => {
         hideModal()

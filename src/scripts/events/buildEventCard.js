@@ -7,6 +7,7 @@ const $ = require("jquery")
 const APIManager = require("../api/APIManager")
 const activateEventCardButtons = require("./eventCardEventHandlers")
 const userManager = require("../registration/UserManager")
+const editEvent = require("./editEventForm");
 
 const buildEventCard = (name, id, date, location, user, styleNextEvent) => {
     const output = $("#Events__output")
@@ -37,7 +38,9 @@ const buildEventCard = (name, id, date, location, user, styleNextEvent) => {
         if(styleNextEvent){
             $(`#Event__card__${id}`).addClass("next-event");
         }
-        activateEventCardButtons(id)
+        $(`#Edit__event__${id}`).click(() => {
+            editEvent(id)
+        })
     })
 }
 

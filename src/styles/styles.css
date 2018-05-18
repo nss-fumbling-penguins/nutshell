@@ -253,19 +253,8 @@ nav input, nav button {
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
-<<<<<<< HEAD
-/*
-event styling */
-#Events__header {
-    border: 1px solid black;
-    padding: .5em;
-    background: rgb(162,162,162);
-    background: linear-gradient(90deg, rgba(162,162,162,1) 0%, rgba(255,255,255,1) 100%);
-}
-=======
 
 /* event styling */
->>>>>>> master
 
 #Events {
 	width:49%;
