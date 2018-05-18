@@ -63,21 +63,15 @@ const viewManager = Object.create({}, {
                     userManager.logOutUser()
                     viewManager.buildSignedOut()
                 })
-                // function to build tasks section
 				const initializeTasks = require("../tasks/TasksInit")
                 initializeTasks()
-                //function to build events section
-                const initializeEvents = require("../events/initEvents")
-
-				// function to build chat section
-				buildChat.buildChat()
-                //function to build events
-
-                // function to build news
-                initializeNews()
-                initializeEvents()
-                //function to list friends
                 friendsList()
+                buildChat.buildChat()
+                const initializeEvents = require("../events/initEvents")
+                initializeEvents()
+                initializeNews()
+		
+                
             })
 
         }
