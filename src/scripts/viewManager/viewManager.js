@@ -11,7 +11,6 @@ const buildChat = require("../chat/buildChat")
 const initializeNews = require("../news/newsInit")
 const UserManager = require("../registration/UserManager")
 
-
 const viewManager = Object.create({}, {
     buildLandingPage: {
         value: () => {
@@ -19,17 +18,11 @@ const viewManager = Object.create({}, {
             if (UserManager.currentUser() === null) {
                 $("#wrapper").append(
                     `<nav>
-<<<<<<< HEAD
-                    <h1>Nutshell</h1>
-                    <input type="button" class="button-login" value="Login">
-                    <input type="button" class="button-signup" value="Signup">
-=======
                     <h1 id="brand">Nutshell</h1>
                     <ul>
                     <li><input type="button" class="button-login" value="Login"></li>
                     <li><input type="button" class="button-signup" value="Signup"></li>
                     </ul>
->>>>>>> master
                     </nav>
                     <article id="main-page">
                     <p>Nutshell is a great way to keep track of your entire life.  Anything you can't track in Nutshell must not be that important.  Sign up today!</p>
@@ -86,7 +79,6 @@ const viewManager = Object.create({}, {
                 //function to list friends
                 friendsList()
             })
-
         }
     },
     buildSignedOut: {
@@ -94,17 +86,11 @@ const viewManager = Object.create({}, {
             $("#wrapper").empty()
             $("#wrapper").append(
                 `<nav>
-<<<<<<< HEAD
-                <h1>Nutshell</h1>
-                <input type="button" class="button-login" value="Login">
-                <input type="button" class="button-signup" value="Signup">
-=======
                 <h1 id="brand">Nutshell</h1>
                 <ul>
                 <li><input type="button" class="button-login" value="Login"></li>
                 <li><input type="button" class="button-signup" value="Signup"></li>
                 </ul>
->>>>>>> master
                 </nav>
                 <article id="main-page">
                 <p>You are now logged out.</p>

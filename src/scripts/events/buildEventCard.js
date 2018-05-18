@@ -8,7 +8,7 @@ const APIManager = require("../api/APIManager")
 const activateEventCardButtons = require("./eventCardEventHandlers")
 const userManager = require("../registration/UserManager")
 
-const buildEventCard = (name, id, date, location, user) => {
+const buildEventCard = (name, id, date, location, user, styleNextEvent) => {
     const output = $("#Events__output")
     const eventElement = $(`<div id="Event__card__${id}" class="Event__card"></div>`)
     eventElement.append(
@@ -34,6 +34,9 @@ const buildEventCard = (name, id, date, location, user) => {
         }
     }).then(() =>{
         output.append(eventElement)
+        if(styleNextEvent){
+            $(`#Event__card__${id}`).addClass("next-event");
+        }
         activateEventCardButtons(id)
     })
 }
