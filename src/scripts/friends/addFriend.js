@@ -29,6 +29,8 @@ const addFriend = (usernameToAdd) => {
                     }
                     APIManager.createItem("Relationships", relationship)
                 }
+            } else {
+                alert("Couldn't find that user, they must not be cool enough for nutshell ;)")
             }
         })
 }
