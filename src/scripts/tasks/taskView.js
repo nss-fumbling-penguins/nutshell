@@ -12,7 +12,7 @@ const showTaskView = () => {
     //get refference to main div
     const output = $("#main-page")
     //create parent task div
-    const taskView = $("<div id=\"Tasks\"></div>")
+    const taskView = $("<div id=\"Tasks\" class=\"component\"></div>")
 
     //append main elements
     taskView.append(
