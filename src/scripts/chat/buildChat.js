@@ -20,7 +20,7 @@ const chatActor = Object.create(null, {
 				const chatRef = $("#main-page")
 				
 				let chatbox = `
-					<div id="chat">
+					<div id="chat" class="component">
 						<div id="chatBox"></div>
 						<div id="chatInputSection">
 							<input type="text" id="chatInput">

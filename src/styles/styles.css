@@ -75,20 +75,22 @@ nav input, nav button {
 #chat{
 	order: 3;
 	width:39%;
-    max-height: 250px;
-	border: 2px solid black;
+	border: 1px solid black;
 }
 
 #chatBox{
-    max-height: 230px;
+	min-height: calc(40vh - 25px);
+    max-height: calc(40vh - 25px);
 	overflow-y: scroll;
 	display: flex;
 	flex-direction: column;
 }
 
 #chatInput{
+	height:20px;
+	margin-bottom: 2px;
 	width: 99%;
-	border-top:2px solid black;
+	border-top:1px solid black;
 }
 
 .chatMsg{
@@ -108,7 +110,7 @@ nav input, nav button {
 	margin-left: 5px;
 	margin-top: 5px;
 	border:2px solid #8AA1B1;
-	border-radius: 4%;
+	border-radius: 15%;
 	background-color: #8AA1B1;
 	user-select: none;
 }
@@ -139,9 +141,10 @@ nav input, nav button {
 
 /* main component styles */
 
+
 .component {
-    height: 250px;
-    border: 1px solid black;
+  height: 250px;
+  border: 1px solid black;
 	display: flex;
 	flex-direction: column;
 }
@@ -253,7 +256,7 @@ nav input, nav button {
 
 #Events {
 	width:49%;
-    order: 5;
+  order: 5;
 }
 
 .Event__card__content * {
