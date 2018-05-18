@@ -137,38 +137,43 @@ nav input, nav button {
     display: none;
 }
 
+/* main component styles */
 
-/* Tasks styles */
-#Tasks {
-	order: 1;
-	width:39%;
+.component {
     height: 250px;
     border: 1px solid black;
 	display: flex;
 	flex-direction: column;
 }
 
-#Tasks__header {
+.component__header {
     border: 1px solid black;
     padding: .5em;
     background: rgb(162,162,162);
     background: linear-gradient(90deg, rgba(162,162,162,1) 0%, rgba(255,255,255,1) 100%);
 }
 
-#Tasks__output {
-    overflow: scroll;
-}
-
-#Tasks__output .Task__card:nth-child(even) {
-    background-color: rgba(128, 128, 128, 0.233);
-}
-
-#Tasks__header h3{
+.component__header__title {
     display: inline-block;
 }
 
-#Tasks__header button {
+.component__header__button {
     margin-left: 2em;
+}
+
+.component__output {
+    overflow: scroll;
+}
+
+/* Tasks styles */
+#Tasks {
+	order: 1;
+	width:39%;
+}
+
+
+#Tasks__output .Task__card:nth-child(even) {
+    background-color: rgba(128, 128, 128, 0.233);
 }
 
 .complete {
@@ -270,8 +275,8 @@ nav input, nav button {
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
-/*
-event styling */
+
+/* event styling */
 
 #Events {
 	width:49%;
@@ -296,17 +301,6 @@ event styling */
 #friends {
 	order: 2;
 	width:20%;
-    height: 250px;
-    border: 1px solid black;
-    background-color: white;
-}
-
-#friends > h3 {
-    margin: .5em 0 .5em 0;
-}
-
-#Friend__output {
-    overflow: scroll;
 }
 
 .Friend__card {
