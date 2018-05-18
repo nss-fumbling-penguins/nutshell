@@ -204,34 +204,7 @@ nav input, nav button {
 #News {
 	order: 4;
 	width:49%;
-    height: 250px;
-    border: 1px solid black;
-	display: flex;
-	flex-direction: column;
 }
-
-#News__header {
-    border: 1px solid black;
-    padding: .5em;
-    background: rgb(162,162,162);
-    background: linear-gradient(90deg, rgba(162,162,162,1) 0%, rgba(255,255,255,1) 100%);
-}
-
-#Articles__output {
-    height: inherit;
-    overflow-y: scroll;
-}
-
-#News__header h3{
-    display: inline-block;
-}
-
-#News__header button {
-    margin-left: 2em;
-}
-
-
-
 
 /* modal styles */
 
