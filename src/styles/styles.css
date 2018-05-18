@@ -3,8 +3,8 @@
 }
 
 #wrapper {
-    min-width: 817px;
-    max-width: 817px;
+    min-width: 100%;
+    max-width: 100%;
 }
 
 /* nav */
@@ -66,13 +66,15 @@ nav input, nav button {
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+	justify-content: stretch;
+	padding-left: 1%;
 }
 
 /* chatBox css */
 
 #chat{
-    order: 3;
+	order: 3;
+	width:39%;
     max-height: 250px;
 	border: 2px solid black;
 }
@@ -85,7 +87,7 @@ nav input, nav button {
 }
 
 #chatInput{
-	width: 100%;
+	width: 99%;
 	border-top:2px solid black;
 }
 
@@ -138,7 +140,8 @@ nav input, nav button {
 
 /* Tasks styles */
 #Tasks {
-    order: 1;
+	order: 1;
+	width:39%;
     height: 250px;
     border: 1px solid black;
 	display: flex;
@@ -194,8 +197,8 @@ nav input, nav button {
 }
 
 #News {
-    order: 4;
-    flex-grow: 2;
+	order: 4;
+	width:49%;
     height: 250px;
     border: 1px solid black;
 	display: flex;
@@ -271,9 +274,10 @@ nav input, nav button {
 event styling */
 
 #Events {
+	width:49%;
     order: 5;
-    flex-grow: 2;
-    height: 250px;
+	height: 250px;
+	border: 1px solid black;
 }
 
 .Event__card__content * {
@@ -290,7 +294,8 @@ event styling */
 /* Friends list styles */
 
 #friends {
-    order: 2;
+	order: 2;
+	width:20%;
     height: 250px;
     border: 1px solid black;
     background-color: white;
