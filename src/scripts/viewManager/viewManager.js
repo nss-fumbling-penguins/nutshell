@@ -11,7 +11,6 @@ const buildChat = require("../chat/buildChat")
 const initializeNews = require("../news/newsInit")
 const UserManager = require("../registration/UserManager")
 
-
 const viewManager = Object.create({}, {
     buildLandingPage: {
         value: () => {
@@ -73,7 +72,6 @@ const viewManager = Object.create({}, {
 		
                 
             })
-
         }
     },
     buildSignedOut: {

@@ -19,14 +19,25 @@ const showEventView = () => {
 
     APIManager.getFriendCollection("Events", userID)
         .then(friendItems => {
-            var first_iteration = true;
+            //find which event is happening next
+            const date = new Date();
+            const nowTime = date.getTime();
+            const futureEvents = friendItems.filter(item => Date.parse(item.date) - nowTime > 0);
+            const nextEvent = futureEvents.reduce((min, event) => Date.parse(event.date) < min ? event.date : min);
             friendItems.sort((a, b) => {
                 let x = Date.parse(b.date);
                 let y = Date.parse(a.date);
                 return x - y;
             })
             .forEach(event => {
-                    buildEventCard(event.name, event.id, event.date, event.location, event.userID)
+                var styleNextEvent = false;
+                if(event.id === nextEvent.id){
+                    styleNextEvent = true;
+                    buildEventCard(event.name, event.id, event.date, event.location, event.userID, styleNextEvent)
+                    styleNextEvent = false;
+                }else{
+                    buildEventCard(event.name, event.id, event.date, event.location, event.userID, styleNextEvent)
+                }
             })
         })
     output.append(eventView)
