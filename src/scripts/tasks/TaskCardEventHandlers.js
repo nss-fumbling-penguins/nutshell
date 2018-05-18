@@ -19,6 +19,7 @@ const activateTaskCardButtons = (id) => {
     //edit task
     $(`#Edit__task__${id}`).click(() => {
         editTask(id)
+        $("#editTask__input__title").focus()
     })
 
     //complete task
