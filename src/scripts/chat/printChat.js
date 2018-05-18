@@ -189,7 +189,7 @@ const printChat = Object.create(null, {
 				})
 				//adds add friend event handlers
 				addable.forEach(data => {
-					$(`#${data.id} .chatUser`).on("click", (e) =>{
+					$(`#${data.id} > .chatUser`).on("click", (e) =>{
 						friend(data.user)
 					})
 				})
