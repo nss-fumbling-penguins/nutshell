@@ -143,7 +143,8 @@ nav input, nav button {
 
 
 .component {
-  height: 250px;
+	min-height: 40vh;
+	max-height: 40vh;
   border: 1px solid black;
 	display: flex;
 	flex-direction: column;
