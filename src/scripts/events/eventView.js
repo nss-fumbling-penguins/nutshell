@@ -20,9 +20,10 @@ const showEventView = () => {
     APIManager.getFriendCollection("Events", userID)
         .then(friendItems => {
             //find which event is happening next
+            var futureEvents = [];
             const date = new Date();
             const nowTime = date.getTime();
-            const futureEvents = friendItems.filter(item => Date.parse(item.date) - nowTime > 0);
+            futureEvents = friendItems.filter(item => Date.parse(item.date) - nowTime > 0);
             const nextEvent = futureEvents.reduce((min, event) => Date.parse(event.date) < min ? event.date : min);
             friendItems.sort((a, b) => {
                 let x = Date.parse(b.date);

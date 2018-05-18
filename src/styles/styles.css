@@ -32,7 +32,7 @@ nav ul li {
     text-align: center;
     margin-right: 5px;
     padding: 0;
-} 
+}
 
 #brand {
     margin: 0 5px 0 5px;
@@ -269,6 +269,12 @@ nav input, nav button {
 }
 /*
 event styling */
+#Events__header {
+    border: 1px solid black;
+    padding: .5em;
+    background: rgb(162,162,162);
+    background: linear-gradient(90deg, rgba(162,162,162,1) 0%, rgba(255,255,255,1) 100%);
+}
 
 #Events {
     order: 5;
@@ -322,9 +328,9 @@ event styling */
 
 /* User Form styles */
 
-#submit-button, 
+#submit-button,
 .button-signup {
-    display: block; 
+    display: block;
     height: 25px;
     background-color: orange;
     border: none;
@@ -333,7 +339,7 @@ event styling */
     font-size: 1.1em;
 }
 
-#login-form, 
+#login-form,
 #signup-form {
     display: flex;
     flex-direction: column;
@@ -345,7 +351,7 @@ event styling */
     border-radius: 5px;
 }
 
-.landing, 
+.landing,
 .logged-out {
     height: 600px;
     display: flex;
@@ -358,7 +364,7 @@ event styling */
     font-size: 2em;
 }
 
-#login-form div, 
+#login-form div,
 #signup-form div {
     margin-bottom: 3px;
 }
