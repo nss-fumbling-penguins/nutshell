@@ -5,7 +5,6 @@
 
 const $ = require("jquery")
 const APIManager = require("../api/APIManager")
-const activateEventCardButtons = require("./eventCardEventHandlers")
 const userManager = require("../registration/UserManager")
 const editEvent = require("./editEventForm");
 

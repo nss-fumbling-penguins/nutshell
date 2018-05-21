@@ -2,7 +2,6 @@ const $ = require("jquery")
 const APIManager = require("../api/APIManager");
 const userManager = require("../registration/UserManager");
 const buildEventCard = require("./buildEventCard")
-const activateEventHeaderButton = require("./activateEventHeaderButton");
 
 const showEventView = () => {
     const output = $("#main-page")
@@ -17,10 +16,9 @@ const showEventView = () => {
         `
     )
     output.append(eventView)
-
-    activateEventHeaderButton();
+    $("#Events__button__createEvent").click(() => {
+        $("#Event__modal").addClass("show-modal")
+    })
 }
-
-
 
 module.exports = showEventView

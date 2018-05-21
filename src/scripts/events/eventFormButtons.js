@@ -44,8 +44,8 @@ const activateEventFormButtons = () => {
         APIManager.createItem("Events", event)
         clearFormFields()
         hideModal()
-         $("#Events__output").empty();
-         loadEvents();
+        $("#Events__output").empty();
+        loadEvents();
     })
     //handles click on the cancel Event creation button
     $("#Event__modal__close").click(() => {
