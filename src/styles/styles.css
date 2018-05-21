@@ -32,7 +32,7 @@ nav ul li {
     text-align: center;
     margin-right: 5px;
     padding: 0;
-} 
+}
 
 #brand {
     margin: 0 5px 0 5px;
@@ -298,10 +298,10 @@ nav input, nav button {
 
 /* User Form styles */
 
-#submit-button, 
-.button-signup, 
+#submit-button,
+.button-signup,
 .button-login {
-    display: block; 
+    display: block;
     height: 25px;
     background-color: orange;
     border: none;
@@ -310,7 +310,7 @@ nav input, nav button {
     font-size: 1.1em;
 }
 
-#login-form, 
+#login-form,
 #signup-form {
     display: flex;
     flex-direction: column;
@@ -322,7 +322,7 @@ nav input, nav button {
     border-radius: 5px;
 }
 
-.landing, 
+.landing,
 .logged-out {
     height: 600px;
     display: flex;
@@ -335,7 +335,7 @@ nav input, nav button {
     font-size: 2em;
 }
 
-#login-form div, 
+#login-form div,
 #signup-form div {
     margin-bottom: 3px;
 }

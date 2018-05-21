@@ -30,7 +30,7 @@ const printChat = Object.create(null, {
 	check:{
 		value: function(msg){
 			if(msg.userID >= printChat.users.length){
-				
+
 				printChat.updateUserList().then(() => {
 					this.print(msg)
 				})
@@ -107,8 +107,8 @@ const printChat = Object.create(null, {
 	},
 	//gets list of all users and saves them to save on ajax calls
 	updateUserList:{
-		value:  function() { 
-				
+		value:  function() {
+
 				return	new Promise(function (resolve, reject) {
 					const printChat = require("./printChat")
 					printChat.users = []
@@ -191,14 +191,14 @@ const printChat = Object.create(null, {
 				})
 				//adds add friend event handlers
 				addable.forEach(data => {
-					$(`#${data.id} > .chatUser`).on("click", (e) =>{
+					$(`#${data.id}`).find(".chatUser").on("click", (e) =>{
 						friend(data.user)
 					})
 				})
 				//scrolls to bottom of chat box
 				$("#chatBox").animate({ scrollTop: $("#chatBox").prop("scrollHeight")}, 1000)
-				
-				
+
+
 			})
 		}
 	}

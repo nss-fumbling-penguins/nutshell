@@ -5,7 +5,7 @@
 */
 
 const $ = require("jquery")
-
+const activateEventFormButtons = require("./eventFormButtons");
 
 // file to eventually hold create event form as modal popup
 const createEventForm = () => {
@@ -24,6 +24,7 @@ const createEventForm = () => {
         </div>
         `
     )
+    activateEventFormButtons();
 }
 
 
