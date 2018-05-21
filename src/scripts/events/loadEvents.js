@@ -23,13 +23,15 @@ const loadEvents = () =>{
             })
             .forEach(event => {
                 var styleNextEvent = false;
-                if(event.id === nextEvent.id){
-                    styleNextEvent = true;
-                    buildEventCard(event.name, event.id, event.date, event.location, event.userID, styleNextEvent)
-                    styleNextEvent = false;
-                }
-                else{
-                    buildEventCard(event.name, event.id, event.date, event.location, event.userID, styleNextEvent)
+                if(nextEvent){
+                    if(event.id === nextEvent.id){
+                        styleNextEvent = true;
+                        buildEventCard(event.name, event.id, event.date, event.location, event.userID, styleNextEvent)
+                        styleNextEvent = false;
+                    }
+                    else{
+                        buildEventCard(event.name, event.id, event.date, event.location, event.userID, styleNextEvent)
+                    }
                 }
             })
         })
