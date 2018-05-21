@@ -12,7 +12,7 @@ const buildArticleElement = (title, summary, url, id, userID) => {
     articleElement.append(
         `
             <h4 class="Article__card__title">${title}</h4>
-            <p class="Task__card__summary">Summary: ${summary}</p>
+            <p class="Article__card__summary">Summary: ${summary}</p>
             <p class="Article__card__URL">URL: ${url}</p>
         `
     )

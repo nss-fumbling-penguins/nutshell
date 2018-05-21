@@ -8,9 +8,12 @@ const $ = require("jquery")
 const APIManager = require("../api/APIManager")
 const createNewsObject = require("./createNewsObject")
 const UserManager = require("../registration/UserManager")
+const createEditArticleForm = require("./createEditNewsForm")
 
 const hideModal = () => {
     $("#editArticle__modal").removeClass("show-modal")
+    $("#editArticle__modal").remove()
+    createEditArticleForm()
 }
 
 
@@ -34,7 +37,7 @@ const editArticle = (id) => {
 
         //get the values of the edit article form fields
         let newTitle = $("#editArticle__input__title").val()
-        let newSummary = $("#editArticle__input__summary").val()
+        let newSummary = $("#editArticle__input__summary").val() 
         let newURL = $("#editArticle__input__URL").val()
 
         //check to see if a value was present in the new title field
@@ -51,6 +54,7 @@ const editArticle = (id) => {
             $(`#Article__card__${id} > .Article__card__summary`).text(`Summary: ${newSummary}`)
         } else {
             newSummary = $(`#Article__card__${id} > .Article__card__summary`).text()
+            newSummary = newSummary.slice(9)
         }
         //do the same as above for URL value
         if (newURL !== "") {
@@ -58,6 +62,7 @@ const editArticle = (id) => {
             $(`#Article__card__${id} > .Article__card__URL`).text(`URL: ${newURL}`)
         } else {
             newURL = $(`#Article__card__${id} > .Article__card__URL`).text()
+            newURL = newURL.slice(5)
         }
 
         //finally check to see if the article was changed at all
