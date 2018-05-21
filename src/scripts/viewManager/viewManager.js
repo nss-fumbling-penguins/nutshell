@@ -62,6 +62,7 @@ const viewManager = Object.create({}, {
                     userManager.logOutUser()
                     viewManager.buildSignedOut()
                 })
+                //builds each of the components inside the #main-page dashboard
 				const initializeTasks = require("../tasks/TasksInit")
                 initializeTasks()
                 friendsList()
