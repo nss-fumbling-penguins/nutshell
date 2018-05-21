@@ -36,11 +36,10 @@ const submitForm = (id) => {
     //do the same as above for date value
     if (newDate !== "") {
         taskChanged = true
-        $(`#Task__card__${id} > .Task__card__date`).text(`${newDate}`)
+        $(`#Task__card__${id} > .Task__card__date`).text(`Due: ${newDate}`)
     } else {
         newDate = $(`#Task__card__${id} > .Task__card__date`).text()
         newDate = newDate.slice(5)
-        console.log(newDate)
     }
 
     //finally check to see if the task was changed at all
