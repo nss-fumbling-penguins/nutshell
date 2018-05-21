@@ -11,11 +11,12 @@ const loadEvents = () =>{
             const date = new Date();
             const nowTime = date.getTime();
             futureEvents = friendItems.filter(item => Date.parse(item.date) - nowTime > 0);
-            if (futureEvents.length > 1) {
-                const nextEvent = futureEvents.reduce(function(prev, curr) {
-                    return Date.parse(prev.date) < Date.parse(curr.date) ? prev : curr;
-                });
-            }else nextEvent = futureEvents[0];
+            let nextEvent;
+            if(futureEvents.length > 0){
+                nextEvent = futureEvents.reduce(function(prev, curr) {
+                        return Date.parse(prev.date) < Date.parse(curr.date) ? prev : curr;
+                    });
+            }
             friendItems.sort((a, b) => {
                 let x = Date.parse(b.date);
                 let y = Date.parse(a.date);
@@ -23,8 +24,7 @@ const loadEvents = () =>{
             })
             .forEach(event => {
                 var styleNextEvent = false;
-                if(nextEvent){
-                    if(event.id === nextEvent.id){
+                    if(nextEvent !== undefined && event.id === nextEvent.id){
                         styleNextEvent = true;
                         buildEventCard(event.name, event.id, event.date, event.location, event.userID, styleNextEvent)
                         styleNextEvent = false;
@@ -32,7 +32,6 @@ const loadEvents = () =>{
                     else{
                         buildEventCard(event.name, event.id, event.date, event.location, event.userID, styleNextEvent)
                     }
-                }
             })
         })
 }
