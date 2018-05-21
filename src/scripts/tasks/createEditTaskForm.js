@@ -4,6 +4,12 @@
 */
 const $ = require("jquery")
 
+const hideModal = () => {
+    $("#editTask__modal").removeClass("show-modal")
+    $("#editTask__input__title").val("")
+    $("#editTask__input__date").val("")
+}
+
 const createEditTaskForm = () => {
     const output = $("#main-page")
     output.append(

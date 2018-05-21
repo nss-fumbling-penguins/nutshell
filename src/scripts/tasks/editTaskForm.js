@@ -7,9 +7,14 @@ const $ = require("jquery")
 const APIManager = require("../api/APIManager")
 const createTaskObject = require("./createTaskObject")
 const UserManager = require("../registration/UserManager")
+const createEditTaskForm = require("./createEditTaskForm")
 
 const hideModal = () => {
     $("#editTask__modal").removeClass("show-modal")
+    $("#editTask__input__title").val("")
+    $("#editTask__input__date").val("")
+    $("#editTask__modal").remove()
+    createEditTaskForm()
 }
 
 const submitForm = (id) => {
@@ -31,9 +36,11 @@ const submitForm = (id) => {
     //do the same as above for date value
     if (newDate !== "") {
         taskChanged = true
-        $(`#Task__card__${id} > .Task__card__date`).text(`Due: ${newDate}`)
+        $(`#Task__card__${id} > .Task__card__date`).text(`${newDate}`)
     } else {
         newDate = $(`#Task__card__${id} > .Task__card__date`).text()
+        newDate = newDate.slice(5)
+        console.log(newDate)
     }
 
     //finally check to see if the task was changed at all
@@ -61,12 +68,14 @@ const editTask = (id) => {
 
     //handle submit button click
     $("#editTask__button__submit").click(() => {
+        console.log(id)
         submitForm(id)
     })
 
     $("#editTask__input__title").keypress((e) => {
         var key = e.which
         if (key === 13) {
+            console.log(id)
             submitForm(id)
         }
     })
