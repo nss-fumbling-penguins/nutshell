@@ -34,7 +34,7 @@ const activateArticleFormButtons = () => {
     })
 
     //handles click on the modal x button
-    $("#Article__modal__close").click(hideModal)
+    $("#Articles__modal__close").click(hideModal)
 
     //handles click on article submit button
     $("#Articles__button__submit").click(() => {
