@@ -9,10 +9,12 @@ const buildTaskCard = require("./buildTaskCard")
 const UserManager = require("../registration/UserManager")
 const APIManager = require("../api/APIManager")
 
+
 //functions to hold common functionality across buttons
 //show the task modal
 const showModal = () => {
     $("#Task__modal").addClass("show-modal")
+    $("#Tasks__input__title").focus()
 }
 
 //hide the task modal
@@ -24,6 +26,25 @@ const hideModal = () => {
 const clearFormFields = () => {
     $("#Tasks__input__title").val("")
     $("#Tasks__input__date").val("")
+}
+
+const formSubmit = () => {
+    //get current user
+    userID = UserManager.currentUser()
+    //create task object
+    task = createTaskObject(userID, $("#Tasks__input__title").val(), $("#Tasks__input__date").val())
+    //call function to send task to api
+    APIManager.createItem("Tasks", task)
+        .then(response => {
+            title = response.name
+            id = response.id
+            dueDate = response.dueDate
+            //take the response and append a new card to the dom based on the new task item
+            buildTaskCard(title, id, dueDate)
+        })
+
+    clearFormFields()
+    hideModal()
 }
 
 //main function of module, activate event handlers for buttons
@@ -38,23 +59,21 @@ const activateTaskFormButtons = () => {
 
     //handles click on task submit button
     $("#Tasks__button__submit").click(() => {
+        formSubmit()
+    })
 
-        //get current user
-        userID = UserManager.currentUser()
-        //create task object
-        task = createTaskObject(userID, $("#Tasks__input__title").val(), $("#Tasks__input__date").val())
-        //call function to send task to api
-        APIManager.createItem("Tasks", task)
-            .then(response => {
-                title = response.name
-                id = response.id
-                dueDate = response.dueDate
-                //take the response and append a new card to the dom based on the new task item
-                buildTaskCard(title, id, dueDate)
-            })
+    $("#Tasks__input__title").keypress((e) => {
+        var key = e.which
+        if (key === 13) {
+            formSubmit()
+        }
+    })
 
-        clearFormFields()
-        hideModal()
+    $("#Tasks__input__date").keypress((e) => {
+        var key = e.which
+        if (key === 13) {
+            formSubmit()
+        }
     })
 
     //handles click on the cancel task creation button

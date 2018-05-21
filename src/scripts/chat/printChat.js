@@ -59,23 +59,32 @@ const printChat = Object.create(null, {
 
 				//add event listener for editing message on double click
 				$(`#${msg.timeStamp}`).on("dblclick", (e) =>{
-					//todo add check to see if there is an edit window open
-					//create edit input, populate with current message, and add to DOM
-					let edit = "<input type=\"text\" class=\"editMsg\">"
-					$(e.currentTarget).append(edit)
-					$(e.currentTarget).find(".editMsg").val(`${$(e.currentTarget).find(".chatText").text()}`)
+					if($(e.currentTarget).children().length < 4){
+						//create edit input, populate with current message, and add to DOM
+						let edit = "<input type=\"text\" class=\"editMsg\">"
+						$(e.currentTarget).append(edit)
+						$(e.currentTarget).find(".editMsg").val(`${$(e.currentTarget).find(".chatText").text()}`)
 
-					//add event listener to edit input
-					$(e.currentTarget).find(".editMsg").on("keyup", function(event) {
-						//listen for enter key
-						if (event.keyCode === 13 && $(e.currentTarget).find(".editMsg").val() !== ""){
-							//get updated message, pass it to local storage and json server, update message on DOM
-							$(e.currentTarget).find(".chatText").text($(e.currentTarget).find(".editMsg").val())
-							let data = {
-								edit: true,
-								target: e.currentTarget.id,
-								msg: $(e.currentTarget).find(".editMsg").val()
+						//add event listener to edit input
+						$(e.currentTarget).find(".editMsg").on("keyup", function(event) {
+							//listen for enter key
+							if (event.keyCode === 13 && $(e.currentTarget).find(".editMsg").val() !== ""){
+								//get updated message, pass it to local storage and json server, update message on DOM
+								$(e.currentTarget).find(".chatText").text($(e.currentTarget).find(".editMsg").val())
+								let data = {
+									edit: true,
+									target: e.currentTarget.id,
+									msg: $(e.currentTarget).find(".editMsg").val()
+								}
+								chatStorage.save(data)
+								api.getByTimestamp(e.currentTarget.id).then(update => {
+									update[0].message = data.msg
+									api.updateItem("messages", update[0].id, update[0])
+								})
+								//removes the edit input
+								$(e.currentTarget).find(".editMsg").remove()
 							}
+<<<<<<< HEAD
 							chatStorage.save(data)
 							api.getByTimestamp(e.currentTarget.id).then(update => {
 								update[0].message = data.msg
@@ -86,6 +95,10 @@ const printChat = Object.create(null, {
 						}
 					})
 
+=======
+						})
+					}
+>>>>>>> master
 				})
 			}else{
 				//if message isn't from logged in user create message and add to DOM
@@ -166,25 +179,27 @@ const printChat = Object.create(null, {
 				//adds edit event handlers
 				editable.forEach(id => {
 					$(`#${id}`).on("dblclick", (e) =>{
-						let edit = "<input type=\"text\" class=\"editMsg\">"
-						$(e.currentTarget).append(edit)
-						$(e.currentTarget).find(".editMsg").val(`${$(e.currentTarget).find(".chatText").text()}`)
-						$(e.currentTarget).find(".editMsg").on("keyup", function(event) {
-							if (event.keyCode === 13 && $(e.currentTarget).find(".editMsg").val() !== ""){
-								$(e.currentTarget).find(".chatText").text($(e.currentTarget).find(".editMsg").val())
-								let data = {
-									edit: true,
-									target: e.currentTarget.id,
-									msg: $(e.currentTarget).find(".editMsg").val()
+						if($(e.currentTarget).children().length < 4){
+							let edit = "<input type=\"text\" class=\"editMsg\">"
+							$(e.currentTarget).append(edit)
+							$(e.currentTarget).find(".editMsg").val(`${$(e.currentTarget).find(".chatText").text()}`)
+							$(e.currentTarget).find(".editMsg").on("keyup", function(event) {
+								if (event.keyCode === 13 && $(e.currentTarget).find(".editMsg").val() !== ""){
+									$(e.currentTarget).find(".chatText").text($(e.currentTarget).find(".editMsg").val())
+									let data = {
+										edit: true,
+										target: e.currentTarget.id,
+										msg: $(e.currentTarget).find(".editMsg").val()
+									}
+									chatStorage.save(data)
+									api.getByTimestamp(e.currentTarget.id).then(update => {
+										update[0].message = data.msg
+										api.updateItem("messages", update[0].id, update[0])
+									})
+									$(e.currentTarget).find(".editMsg").remove()
 								}
-								chatStorage.save(data)
-								api.getByTimestamp(e.currentTarget.id).then(update => {
-									update[0].message = data.msg
-									api.updateItem("messages", update[0].id, update[0])
-								})
-								$(e.currentTarget).find(".editMsg").remove()
-							}
-						})
+							})
+						}
 					})
 				})
 				//adds add friend event handlers

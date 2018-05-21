@@ -29,29 +29,30 @@ module.exports = function (grunt) {
                     paths: ["./scripts"],
                 }
             },
-             dist: {
-                                files: {
-                                        "../dist/scripts/bundle.js": ["scripts/**/*.js"]
-                                }
-                        }
-                },
-	uglify: {
-		build:{
-			files: [{
-				expand: true,
-				cwd: "../dist",
-				src: "bundle.js",
-				dest: "../dist",
-				ext: ".min.js"
-			}]
-		}
-	},
+            dist: {
+                files: {
+                    "../dist/scripts/bundle.js": ["scripts/**/*.js"]
+                }
+            }
+        },
+        uglify: {
+            build: {
+                files: [{
+                    expand: true,
+                    cwd: "../dist",
+                    src: "bundle.js",
+                    dest: "../dist",
+                    ext: ".min.js"
+                }]
+            }
+        },
         copy: {
             main: {
                 files: [
                     // includes files within path
                     { expand: true, src: ["index.html"], dest: "../dist/", filter: "isFile" },
-                    { expand: true, src: ["styles/*.css"], dest: "../dist/", filter: "isFile"}
+                    { expand: true, src: ["styles/*.css"], dest: "../dist/", filter: "isFile" },
+                    { expand: true, src: ["Plants-Nut-icon.png"], dest: "../dist/", filter: "isFile" }
                 ]
             }
         }
