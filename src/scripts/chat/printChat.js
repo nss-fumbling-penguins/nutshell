@@ -84,21 +84,8 @@ const printChat = Object.create(null, {
 								//removes the edit input
 								$(e.currentTarget).find(".editMsg").remove()
 							}
-<<<<<<< HEAD
-							chatStorage.save(data)
-							api.getByTimestamp(e.currentTarget.id).then(update => {
-								update[0].message = data.msg
-								api.updateItem("messages", update[0].id, update[0])
-							})
-							//removes the edit input
-							$(e.currentTarget).find(".editMsg").remove()
-						}
-					})
-
-=======
 						})
 					}
->>>>>>> master
 				})
 			}else{
 				//if message isn't from logged in user create message and add to DOM
