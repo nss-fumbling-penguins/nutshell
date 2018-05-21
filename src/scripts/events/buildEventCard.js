@@ -34,6 +34,9 @@ const buildEventCard = (name, id, date, location, user, styleNextEvent) => {
         }
     }).then(() =>{
         output.append(eventElement)
+        if(userID !== parseInt(user)){
+            $(`#Event__card__${id}`).addClass("other-user-event");
+        }
         if(styleNextEvent){
             $(`#Event__card__${id}`).addClass("next-event");
         }
