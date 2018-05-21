@@ -11,9 +11,11 @@ const loadEvents = () =>{
             const date = new Date();
             const nowTime = date.getTime();
             futureEvents = friendItems.filter(item => Date.parse(item.date) - nowTime > 0);
-            const nextEvent = futureEvents.reduce(function(prev, curr) {
-                return Date.parse(prev.date) < Date.parse(curr.date) ? prev : curr;
-            });
+            if (futureEvents.length > 1) {
+                const nextEvent = futureEvents.reduce(function(prev, curr) {
+                    return Date.parse(prev.date) < Date.parse(curr.date) ? prev : curr;
+                });
+            }else nextEvent = futureEvents[0];
             friendItems.sort((a, b) => {
                 let x = Date.parse(b.date);
                 let y = Date.parse(a.date);
