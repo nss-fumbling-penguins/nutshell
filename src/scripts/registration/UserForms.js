@@ -42,7 +42,7 @@ const userForms = Object.create({}, {
             )
             $("#submit-button").click(event => {
                 const username = $("#username").val()
-                $.ajax(`http://localhost:8088/Users?username=${username}`).then(user => {     
+                $.ajax(`https://rm-nutshell-api.herokuapp.com/Users?username=${username}`).then(user => {     
                         if (user.length === 0) {
                             userManager.createNewUser(
                                 $("#first-name").val(), 
