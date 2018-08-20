@@ -4,24 +4,26 @@
 */
 const $ = require("jquery")
 
+const url = "https://rm-nutshell-api.herokuapp.com/"
+
 const APIManager = Object.create(null, {
     //method to get everything from the api
     getAllDatabase: {
         value: function () {
-            return $.ajax("http://localhost:8088/db")
+            return $.ajax("https://rm-nutshell-api.herokuapp.com/db")
         }
     },
     //method to get all items in the collection passed to it
     getAllOfCollection: {
         value: function (collection) {
-            return $.ajax(`http://localhost:8088/${collection}`)
+            return $.ajax(`https://rm-nutshell-api.herokuapp.com/${collection}`)
         }
     },
     getFriendCollection: {
         value: function(collection, userID){
             const friends = [];
             const friendItems = [];
-            return $.ajax("http://localhost:8088/Relationships")
+            return $.ajax("https://rm-nutshell-api.herokuapp.com/Relationships")
                 .then(relationships => {
                     relationships.filter(relationship => parseInt(relationship.userID) === userID)
                     .forEach(relationship => {
@@ -30,7 +32,7 @@ const APIManager = Object.create(null, {
                     return friends;
                 })
                 .then(friends => {
-                    return $.ajax(`http://localhost:8088/${collection}`)
+                    return $.ajax(`https://rm-nutshell-api.herokuapp.com/${collection}`)
                 })
                 .then(data => {
                     data.forEach(item =>{
@@ -47,13 +49,13 @@ const APIManager = Object.create(null, {
     //method to get one item of [id] and collection passed to it
     getOneOfCollection: {
         value: function (collection, id) {
-            return $.ajax(`http://localhost:8088/${collection}/${id}`)
+            return $.ajax(`https://rm-nutshell-api.herokuapp.com/${collection}/${id}`)
         }
     },
     //method to get chat item by timestamp
     getByTimestamp: {
         value: function (timestamp) {
-            return $.ajax(`http://localhost:8088/messages?timeStamp=${timestamp}`)
+            return $.ajax(`https://rm-nutshell-api.herokuapp.com/messages?timeStamp=${timestamp}`)
         }
     },
     //post methods
@@ -61,7 +63,7 @@ const APIManager = Object.create(null, {
     createItem: {
         value: function (collection, data) {
             return $.ajax({
-                url: `http://localhost:8088/${collection}`,
+                url: `https://rm-nutshell-api.herokuapp.com/${collection}`,
                 method: "POST",
                 data: data
             })
@@ -72,7 +74,7 @@ const APIManager = Object.create(null, {
     removeItem: {
         value: function (collection, id) {
             return $.ajax({
-                url: `http://localhost:8088/${collection}/${id}`,
+                url: `https://rm-nutshell-api.herokuapp.com/${collection}/${id}`,
                 method: "DELETE",
             })
         }
@@ -81,7 +83,7 @@ const APIManager = Object.create(null, {
         value: function(collection, userID){
             const friends = [];
             const friendItems = [];
-            return $.ajax("http://localhost:8088/Relationships")
+            return $.ajax("https://rm-nutshell-api.herokuapp.com/Relationships")
                 .then(relationships => {
                     relationships.filter(relationship => parseInt(relationship.userID) === userID)
                     .forEach(relationship => {
@@ -90,7 +92,7 @@ const APIManager = Object.create(null, {
                     return friends;
                 })
                 .then(friends => {
-                    return $.ajax(`http://localhost:8088/${collection}`)
+                    return $.ajax(`https://rm-nutshell-api.herokuapp.com/${collection}`)
                 })
                 .then(data => {
                     data.forEach(item =>{
@@ -109,7 +111,7 @@ const APIManager = Object.create(null, {
     updateItem: {
         value: function (collection, id, data) {
             return $.ajax({
-                url: `http://localhost:8088/${collection}/${id}`,
+                url: `https://rm-nutshell-api.herokuapp.com/${collection}/${id}`,
                 method: "PUT",
                 data: data
             })
